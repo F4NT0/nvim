@@ -23,9 +23,9 @@ return {
 
   config = function()
     require("dashboard").setup ({
-        theme = 'hyper',
-        config = {
-          header = {
+        theme = 'doom',
+      config = {
+        header = {
           "",  
           "███████╗ █████╗ ███╗   ██╗████████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
           "██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔═══██╗██║   ██║██║████╗ ████║",
@@ -34,7 +34,29 @@ return {
           "██║     ██║  ██║██║ ╚████║   ██║   ╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
           "╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
           ""                                                                 
-          }
+        },
+        center = {
+          {
+            icon = '',
+            icon_hl = 'Title',
+            desc = ' Find File',
+            desc_hl = 'String',
+            key = 'F',
+            keymap = 'Ctrl + P',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'Telescope find_files'
+          },
+          {
+            icon = " ",
+            key = 'B',
+            desc = ' Search for code',
+            keymap = 'Ctrl + S',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'Telescope live_grep'
+          },
+        },
+        footer = {}  --your footer
       },
     })
   end
