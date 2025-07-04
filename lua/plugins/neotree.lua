@@ -32,7 +32,7 @@ return {
     vim.keymap.set('n', '<C-f>', ':Neotree filesystem reveal left<CR>', {})
 
     -- Ctrl + G = Show Git status into a float visualization
-    vim.keymap.set('n', '<C-g>', ':Neotree float git_status<CR>', {})
+    vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', {})
 
   end
 }
