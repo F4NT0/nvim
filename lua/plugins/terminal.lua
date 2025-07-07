@@ -31,7 +31,7 @@ return {
       float_ops = {
         border = 'single',
       },
-      shell = 'powershell.exe',
+      shell = 'powershell.exe -NoLogo',
     }
       
     local Terminal = require("toggleterm.terminal").Terminal

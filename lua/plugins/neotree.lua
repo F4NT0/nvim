@@ -54,7 +54,7 @@ return {
   config = function()
 
     -- Ctrl + F = Show files and folders on the left side of neovim
-    vim.keymap.set('n', '<C-f>', ':Neotree filesystem reveal left<CR>', {})
+    vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
 
     -- Ctrl + G = Show Git status into a float visualization
     vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', {})
