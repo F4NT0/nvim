@@ -239,3 +239,26 @@ This file lists the installed Neovim plugins, their commands, and configured sho
 ### Shortcuts
 
 *No custom shortcuts configured in the file.*
+
+---
+
+## 12. Comment
+
+- **GitHub URL:** https://github.com/numToStr/Comment.nvim
+
+### Commands & Shortcuts (Normal Mode)
+
+| Key/Command | Description |
+|---|---|
+| `gcc` | Toggle the current line comment. |
+| `gbc` | Toggle the current block comment. |
+| `[number]gcc` | Toggle comments for the specified number of lines. |
+| `[number]gbc` | Toggle comments for the specified number of blocks. |
+| `gco` | Insert a comment on the next line and enter INSERT mode. |
+| `gcO` | Insert a comment on the previous line and enter INSERT mode. |
+| `gcA` | Insert a comment at the end of the current line and enter INSERT mode. |
+
+### Shortcuts
+
+*No custom shortcuts configured in the file.*
+
