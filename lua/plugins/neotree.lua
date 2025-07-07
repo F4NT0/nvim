@@ -1,9 +1,11 @@
+-------------------------------------------
 --  _   _            _                 
 -- | \ | | ___  ___ | |_ _ __ ___  ___ 
 -- |  \| |/ _ \/ _ \| __| '__/ _ \/ _ \
 -- | |\  |  __/ (_) | |_| | |  __/  __/
 -- |_| \_|\___|\___/ \__|_|  \___|\___|
---
+---------------------------------------------
+---
 -- GITHUB: https://github.com/nvim-neo-tree/neo-tree.nvim
 -- DESCRIPTION: Show all files and directories inside the current directory
 --
