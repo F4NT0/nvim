@@ -37,7 +37,7 @@ return {
         },
         center = {
           {
-            icon = '',
+            icon = '',
             icon_hl = 'Title',
             desc = ' Find files',
             desc_hl = 'String',
@@ -47,7 +47,7 @@ return {
             action = 'Telescope find_files'
           },
           {
-            icon = ' ',
+            icon = '󰈭',
             icon_hl = 'Title',
             desc = ' Search for a word in the code',
             desc_hl = 'String',
@@ -57,17 +57,17 @@ return {
             action = 'Telescope live_grep'
           },
           {
-            icon = '',
+            icon = '',
             icon_hl = 'Title',
             desc = ' Show files and folders',
             desc_hl = 'String',
             key = 'f',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Neotree filesystem reveal left'
+            action = 'Neotree filesystem float'
           },
           {
-            icon = '',
+            icon = '',
             icon_hl = 'Title',
             desc = ' Show git status',
             desc_hl = 'String',
@@ -77,7 +77,7 @@ return {
             action = 'Neotree float git_status'
           },
           {
-            icon = '',
+            icon = '',
             icon_hl = 'Title',
             desc = ' Open Lazy Git',
             desc_hl = 'String',
@@ -87,7 +87,7 @@ return {
             action = 'LazyGit'
           },
           {
-            icon = '',
+            icon = '',
             icon_hl = 'Title',
             desc = ' Open/Close terminal',
             desc_hl = 'String',
@@ -97,7 +97,7 @@ return {
             action = 'ToggleTerm'
           },
           {
-            icon = '',
+            icon = '',
             icon_hl = 'Title',
             desc = ' Open/Close Gemini terminal',
             desc_hl = 'String',

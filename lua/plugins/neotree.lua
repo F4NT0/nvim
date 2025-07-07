@@ -1,9 +1,11 @@
+-------------------------------------------
 --  _   _            _                 
 -- | \ | | ___  ___ | |_ _ __ ___  ___ 
 -- |  \| |/ _ \/ _ \| __| '__/ _ \/ _ \
 -- | |\  |  __/ (_) | |_| | |  __/  __/
 -- |_| \_|\___|\___/ \__|_|  \___|\___|
---
+---------------------------------------------
+---
 -- GITHUB: https://github.com/nvim-neo-tree/neo-tree.nvim
 -- DESCRIPTION: Show all files and directories inside the current directory
 --
@@ -54,7 +56,7 @@ return {
   config = function()
 
     -- Ctrl + F = Show files and folders on the left side of neovim
-    vim.keymap.set('n', '<C-f>', ':Neotree filesystem reveal left<CR>', {})
+    vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
 
     -- Ctrl + G = Show Git status into a float visualization
     vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', {})
