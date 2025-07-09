@@ -34,3 +34,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+--------------------------
+-- CONFIGURATION FOLDER --
+--------------------------
+
+-- Load the configurations for the JDTLS
+require("config.autocmds")
+
