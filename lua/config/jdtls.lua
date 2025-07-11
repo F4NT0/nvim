@@ -120,7 +120,7 @@ end
 local function setup_jdtls()
   
   -- Get access to the jdtls plugin
-  local jdtls = require "jdtls"
+  local jdtls = require("jdtls")
 
   -- Get the paths to the jdtls jar
   local launcher, os_config, lombok = get_jdtls()
@@ -145,6 +145,13 @@ local function setup_jdtls()
       }
     }
   }
+
+  -- Configuring the CMP (to connect into the file cmp.lua file 
+ local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+  
+  -- Configure all capabilities from the LSP
+  for k,v in pairs(lsp_capabilities) do capabilities[k] = v end 
+
 
   -- Get the default extended client capabilities of the JDTLS language server
   local extendedClientCapabilities = jdtls.extendedClientCapabilities
@@ -306,6 +313,7 @@ local function setup_jdtls()
     cmd = cmd,
     root_dir = root_dir,
     settings = settings,
+    capabilities = capabilities, -- Configure the CMP options for Java (see cmp.lua)
     init_options = init_options,
     on_attach = on_attach
   }
