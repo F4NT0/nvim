@@ -60,13 +60,39 @@ return {
     -----------------
     vim.cmd [[
       highlight NeoTreeDirectoryName guifg=#F5F8F6
-      highlight NeoTreeDirectoryIcon guifg=#1CF73D
+      highlight NeoTreeDirectoryIcon guifg=#F9F8F8
       highlight NeoTreeFileName guifg=#FEFEFF
       highlight NeoTreeFileNameOpened guifg=#F19706 gui=bold
-      highlight NeoTreeNormal guibg=#000000
-      highlight NeotreeNormalNC guibg=#000000
-      highlight NeoTreeEndOfBuffer guibg=#000000
+      highlight NeoTreeNormal guibg=#1E1E2E
+      highlight NeotreeNormalNC guibg=#2D2D44
+      highlight NeoTreeEndOfBuffer guibg=#1E1E2E
+      highlight NeoTreeFloatBorder guifg=#A8A1A1
+      highlight NeoTreeTabActive guibg=#1E1E2E guifg=#F5F8F6
+      highlight NeoTreeGitUntracked guifg=#25ED17 gui=bold
+      highlight NeoTreeGitStaged guifg=#09BFFD
+      highlight NeoTreeTitleBar guibg=#1E1E2E guifg=#F5F8F6
+      highlight NeoTreeRootName guifg=#A50CF2
+
     ]]
+
+      require("neo-tree").setup({
+  default_component_configs = {
+    git_status = {
+      symbols = {
+        added     = "",
+        modified  = "",
+        deleted   = "󰧧",
+        renamed   = "󰑕",
+        untracked = "★",
+        ignored   = "◌",
+        unstaged  = "✗",
+        staged    = "✓",
+        conflict  = "",
+      }
+    }
+  }
+})
+
 
     -- Ctrl + F = Show files and folders on the left side of neovim
     vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
