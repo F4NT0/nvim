@@ -36,11 +36,11 @@
 -- O: Open the selected file with the default system application
 
 return {
-  
+
   ------------------
   -- INSTALLATION --
   ------------------
-  
+
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
@@ -54,6 +54,19 @@ return {
   -------------------
 
   config = function()
+
+   -----------------
+    -- COLORSCHEME --
+    -----------------
+    vim.cmd [[
+      highlight NeoTreeDirectoryName guifg=#F5F8F6
+      highlight NeoTreeDirectoryIcon guifg=#1CF73D
+      highlight NeoTreeFileName guifg=#FEFEFF
+      highlight NeoTreeFileNameOpened guifg=#F19706 gui=bold
+      highlight NeoTreeNormal guibg=#000000
+      highlight NeotreeNormalNC guibg=#000000
+      highlight NeoTreeEndOfBuffer guibg=#000000
+    ]]
 
     -- Ctrl + F = Show files and folders on the left side of neovim
     vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
