@@ -32,9 +32,10 @@ vim.opt.rtp:prepend(lazypath)
 --------------------- 
 -- PLUGINS FOLDER  --
 ---------------------
-require("lazy").setup("plugins")
 require("lazy").setup({
-  { "nvimdev/dashboard-nvim", config = function() require("plugins.interface.dashboard") end }
+    spec = {
+        {import = "plugins"}
+    },
 })
 
 --------------------------
