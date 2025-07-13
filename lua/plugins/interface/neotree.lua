@@ -63,14 +63,14 @@ return {
       highlight NeoTreeDirectoryIcon guifg=#F9F8F8
       highlight NeoTreeFileName guifg=#FEFEFF
       highlight NeoTreeFileNameOpened guifg=#F19706 gui=bold
-      highlight NeoTreeNormal guibg=#1E1E2E
+      highlight NeoTreeNormal guibg=#0d1117
       highlight NeotreeNormalNC guibg=#2D2D44
-      highlight NeoTreeEndOfBuffer guibg=#1E1E2E
+      highlight NeoTreeEndOfBuffer guibg=#0d1117
       highlight NeoTreeFloatBorder guifg=#A8A1A1
-      highlight NeoTreeTabActive guibg=#1E1E2E guifg=#F5F8F6
+      highlight NeoTreeTabActive guibg=#0d1117 guifg=#F5F8F6
       highlight NeoTreeGitUntracked guifg=#25ED17 gui=bold
       highlight NeoTreeGitStaged guifg=#09BFFD
-      highlight NeoTreeTitleBar guibg=#1E1E2E guifg=#F5F8F6
+      highlight NeoTreeTitleBar guibg=#0d1117 guifg=#F5F8F6
       highlight NeoTreeRootName guifg=#A50CF2
 
     ]]
@@ -94,11 +94,7 @@ return {
 })
 
 
-    -- Ctrl + F = Show files and folders on the left side of neovim
-    vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
-
-    -- Ctrl + G = Show Git status into a float visualization
-    vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', {})
+    
 
   end
 }

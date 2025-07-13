@@ -3,6 +3,6 @@ return {
   { import = "plugins.lsp" },
   { import = "plugins.markdown" },
   { import = "plugins.programming" },
-  { import = "plugins.plugin-manager" }
+  { import = "plugins.git-manager" }
 
 }

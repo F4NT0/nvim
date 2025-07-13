@@ -17,8 +17,7 @@ return {
       }
     })
 
-    -- c + f = automatically format our code based in which language server is active
-    vim.keymap.set('n','cf', vim.lsp.buf.format, { desc = "[C]ode [F]ormat" })
+    
   end
 
 }

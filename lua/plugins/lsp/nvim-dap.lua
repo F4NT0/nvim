@@ -24,12 +24,7 @@ return {
     -- COMMANDS
     ------------ 
     
-    -- d + t -> Toggle a breakpoint at the line 
-    vim.keymap.set('n', 'dt', dap.toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
-    -- d + s -> Start the debugger
-    vim.keymap.set('n','ds', dap.continue, { desc = "[D]ebug [S]tart" })
-    -- d + c -> Close the Debugging UI
-    vim.keymap.set('n','dc', dapui.close, { desc = "[D]ebug [C]lose" })
+    
 
   end
 }

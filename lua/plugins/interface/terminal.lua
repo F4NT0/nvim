@@ -44,6 +44,6 @@ return {
           },
           hidden = true,
       })
-      vim.keymap.set("n","<c-g>", function() gemini_term:toggle() end)
+     
   end
 }

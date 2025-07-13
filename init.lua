@@ -44,4 +44,5 @@ require("lazy").setup({
 
 -- Load the configurations for the JDTLS
 require("config.autocmds")
+require("config.keymaps")
 

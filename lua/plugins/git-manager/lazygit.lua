@@ -36,6 +36,6 @@ return {
 
   -- Key binding
   keys = {
-    { "lg", "<cmd>LazyGit<cr>", desc = "Open Lazy Git" },
+    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open Lazy Git" },
   },
 }
