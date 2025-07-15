@@ -1,20 +1,14 @@
 ------------------------------------
---  _   _  ____ _____ _____ ______ 
+--  _   _  ____ _____ _____ ______
 -- | \ | |/ __ \_   _/ ____|  ____|
--- |  \| | |  | || || |    | |__   
--- | . ` | |  | || || |    |  __|  
--- | |\  | |__| || || |____| |____ 
+-- |  \| | |  | || || |    | |__
+-- | . ` | |  | || || |    |  __|
+-- | |\  | |__| || || |____| |____
 -- |_| \_|\____/_____\_____|______|
 ------------------------------------
---
--- Noice is a replacement for the Neovim UI. 
--- It completely replaces the UI for messages, cmdline and the popupmenu.
---
--- Dependencies:
---   MunifTanjim/nui.nvim
---   rcarriga/nvim-notify = Create a notification messages that show in the right
---
--- Commands:
+-- GITHUB: https://github.com/folke/noice.nvim
+-- DESCRIPTION: This plugin replaces UI from the commands, cmdline and popups
+-- COMMANDS:
 --  :Noice: Open the noice UI
 --  :Noice last: See the last message
 --  :Noice history: See the message history
@@ -27,5 +21,6 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
-  }
+  },
+
 }

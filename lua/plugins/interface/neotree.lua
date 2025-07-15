@@ -1,6 +1,6 @@
 -------------------------------------------
---  _   _            _                 
--- | \ | | ___  ___ | |_ _ __ ___  ___ 
+--  _   _            _
+-- | \ | | ___  ___ | |_ _ __ ___  ___
 -- |  \| |/ _ \/ _ \| __| '__/ _ \/ _ \
 -- | |\  |  __/ (_) | |_| | |  __/  __/
 -- |_| \_|\___|\___/ \__|_|  \___|\___|
@@ -36,11 +36,11 @@
 -- O: Open the selected file with the default system application
 
 return {
-  
+
   ------------------
   -- INSTALLATION --
   ------------------
-  
+
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
@@ -54,12 +54,59 @@ return {
   -------------------
 
   config = function()
+    -----------------
+    -- COLORSCHEME --
+    -----------------
+    vim.cmd [[
+      highlight NeoTreeDirectoryName guifg=#F5F8F6
+      highlight NeoTreeDirectoryIcon guifg=#F9F8F8
+      highlight NeoTreeFileName guifg=#FEFEFF
+      highlight NeoTreeFileNameOpened guifg=#F19706 gui=bold
+      highlight NeoTreeNormal guibg=#0d1117
+      highlight NeotreeNormalNC guibg=#2D2D44
+      highlight NeoTreeEndOfBuffer guibg=#0d1117
+      highlight NeoTreeFloatBorder guifg=#888A88
+      highlight NeoTreeTabActive guibg=#0d1117 guifg=#F5F8F6
+      highlight NeoTreeGitUntracked guifg=#25ED17 gui=bold
+      highlight NeoTreeGitStaged guifg=#09BFFD
+      highlight NeoTreeTitleBar guibg=#0d1117 guifg=#F5F8F6
+      highlight NeoTreeRootName guifg=#A50CF2
 
-    -- Ctrl + F = Show files and folders on the left side of neovim
-    vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
+    ]]
 
-    -- Ctrl + G = Show Git status into a float visualization
-    vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', {})
-
+    require("neo-tree").setup({
+      default_component_configs = {
+        git_status = {
+          symbols = {
+            added     = "",
+            modified  = "",
+            deleted   = "󰧧",
+            renamed   = "󰑕",
+            untracked = "★",
+            ignored   = "◌",
+            unstaged  = "✗",
+            staged    = "✓",
+            conflict  = "",
+          }
+        }
+      },
+      window = {
+        position = "float",
+        popup = {
+          size = {
+            height = "90%",
+            width = "70%",
+          },
+          position = "50%",
+          border = {
+            style = "rounded",
+            text = {
+              top = "",
+            },
+            highlight ="NeoTreeFloatBorder",
+          },
+        },
+      },
+    })
   end
 }

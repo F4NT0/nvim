@@ -19,11 +19,11 @@ return {
   lazy = false,
   name = "catppuccin",
   priority = 1000,
-   
+
   --------------------
   --- CONFIGURATION --
   --------------------
-  
+
   config = function()
     require("catppuccin").setup({
       flavour = "mocha",

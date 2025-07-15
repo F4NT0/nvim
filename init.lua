@@ -10,6 +10,7 @@ vim.cmd("set clipboard=unnamedplus") -- Using system clipboard
 vim.cmd("set cursorline") -- Hightlight current cursor line
 vim.cmd("filetype plugin indent on") -- Allow auto indent depending of file type
 vim.cmd("set mouse=a") -- Enable mouse click
+vim.g.mapleader = " "
 
 -----------------------------------------
 -- LAZY.VIM PACKAGE MANAGER INSTALLATION
@@ -31,6 +32,17 @@ vim.opt.rtp:prepend(lazypath)
 --------------------- 
 -- PLUGINS FOLDER  --
 ---------------------
+require("lazy").setup({
+    spec = {
+        {import = "plugins"}
+    },
+})
 
-require("lazy").setup("plugins")
+--------------------------
+-- CONFIGURATION FOLDER --
+--------------------------
+
+-- Load the configurations for the JDTLS
+require("config.autocmds")
+require("config.keymaps")
 

@@ -9,9 +9,10 @@
 --- GITHUB: https://github.com/williamboman/mason-lspconfig.nvim FOR MASON LSP CONFIGURATION
 --- GITHUB: https://github.com/williamboman/
 --- DESCRIPTION: This is the LSP manager to install language configurations
+--- WARNING: For C# need to install the tool: dotnet tool install --global csharp-ls
 
 return {
-    
+
   ------------------------- 
   -- MASON CONFIGURATION --
   -------------------------
@@ -26,35 +27,21 @@ return {
   ---------------------------------
   -- MASON LSPCONFIG CONFIGURATION
   ---------------------------------
-  
+  --- The next part of configuration is in nvim-lspconfig.lua
+  --- Add the configurations from each language installed here
+
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "csharp_ls" }
-        -- For C# need to install the tool: dotnet tool install --global csharp-ls
+        ensure_installed = {
+          "lua_ls",
+          "csharp_ls",
+          "jdtls"
+        },
+        automatic_enable = true,
       })
     end
-  },
-
-  -----------------------------
-  -- LSPCONFIG CONFIGURATION --
-  -----------------------------
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-      -- Lua Setup
-      lspconfig.lua_ls.setup({})
-      -- C# Setup
-      lspconfig.csharp_ls.setup({})
-
-      -- K shows the information about the function with the mouse inside
-      vim.keymap.set('n', '<C-K>', vim.lsp.buf.hover, {})
-      vim.keymap.set('n','gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', 'ca', vim.lsp.buf.code_action, {})
-    end
   }
-
 }
 
