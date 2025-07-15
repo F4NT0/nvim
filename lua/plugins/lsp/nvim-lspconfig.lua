@@ -31,5 +31,9 @@ return {
     lspconfig.jdtls.setup({
       capabilities = capabilities,
     })
+    -- Yaml Setup
+    lspconfig.yamlls.setup({
+      capabilities = capabilities,
+    })
   end,
 }
