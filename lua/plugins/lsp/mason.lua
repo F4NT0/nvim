@@ -37,7 +37,8 @@ return {
         ensure_installed = {
           "lua_ls",
           "csharp_ls",
-          "jdtls"
+          "jdtls",
+          "yamlls"
         },
         automatic_enable = true,
       })

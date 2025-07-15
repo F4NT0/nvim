@@ -70,7 +70,7 @@ return {
       highlight NeoTreeGitUntracked guifg=#25ED17 gui=bold
       highlight NeoTreeGitStaged guifg=#09BFFD
       highlight NeoTreeTitleBar guibg=#0d1117 guifg=#F5F8F6
-      highlight NeoTreeRootName guifg=#A50CF2
+      highlight NeoTreeRootName guifg=#F2A033
 
     ]]
 
