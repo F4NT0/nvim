@@ -1,3 +1,50 @@
+---------------------------
+--   _____ __  __ _____  
+--  / ____|  \/  |  __ \ 
+-- | |    | \  / | |__) |
+-- | |    | |\/| |  ___/ 
+-- | |____| |  | | |     
+--  \_____|_|  |_|_|     
+----------------------------                       
+--- GITHUB:
+--- - LuaSnip: https://github.com/L3MON4D3/LuaSnip
+--- - nvim-cmp: https://github.com/hrsh7th/nvim-cmp
+--- - cmp-nvim-lsp: https://github.com/hrsh7th/cmp-nvim-lsp
+--- - cmp-buffer: https://github.com/hrsh7th/cmp-buffer
+--- - cmp-path: https://github.com/hrsh7th/cmp-path
+--- - cmp_luasnip: https://github.com/saadparwaiz1/cmp_luasnip
+--- - friendly-snippets: https://github.com/rafamadriz/friendly-snippets
+
+--- DESCRIPTION:
+--- This setup provides a full autocompletion experience in Neovim using:
+--- - `nvim-cmp` for the completion engine and UI
+--- - `LuaSnip` for snippet expansion
+--- - `cmp-nvim-lsp`, `cmp-buffer`, `cmp-path`, and `cmp_luasnip` as completion sources
+--- - `friendly-snippets` for a large collection of prebuilt snippets
+
+--- DEPENDENCIES:
+--- - LuaSnip (snippet engine)
+--- - cmp_luasnip (connects LuaSnip to nvim-cmp)
+--- - friendly-snippets (VSCode-style snippets)
+--- - cmp-nvim-lsp (LSP source for nvim-cmp)
+--- - cmp-buffer (buffer words as completion source)
+--- - cmp-path (filesystem paths as completion source)
+
+--- KEYMAPS:
+--- These keymaps are defined inside the `cmp.mapping.preset.insert()` block:
+--- - `<C-k>`: Select previous suggestion
+--- - `<C-j>`: Select next suggestion
+--- - `<C-b>`: Scroll documentation up
+--- - `<C-f>`: Scroll documentation down
+--- - `<C-Space>`: Trigger completion menu
+--- - `<C-e>`: Abort/close completion menu
+--- - `<CR>` (Enter): Confirm selected suggestion (only if one is selected)
+
+--- NOTES:
+--- - `luasnip.loaders.from_vscode.lazy_load()` loads snippets on demand
+--- - `cmp.setup()` configures the completion behavior and sources
+--- - `completeopt = "menu,menuone,preview,noselect"` improves UX for completion
+
 return {
   {
     "L3MON4D3/LuaSnip",
@@ -26,7 +73,7 @@ return {
         local cmp = require("cmp")
         -- Gain access to the function of the luasnip plugin
         local luasnip = require("luasnip")
-        
+
         -- Lazily load the vscode snippets
         require("luasnip.loaders.from_vscode").lazy_load()
 

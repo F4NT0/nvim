@@ -1,3 +1,7 @@
+-------------------------------------------------------
+-- RELOAD THE JDTLS INTO AN JAVA WHEN OPEN A JAVA FILE
+------------------------------------------------------- 
+
 vim.cmd [[
   augroup jdtls_lsp
     autocmd!

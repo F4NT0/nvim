@@ -1,6 +1,6 @@
 -------------------------------------------
---  _   _            _                 
--- | \ | | ___  ___ | |_ _ __ ___  ___ 
+--  _   _            _
+-- | \ | | ___  ___ | |_ _ __ ___  ___
 -- |  \| |/ _ \/ _ \| __| '__/ _ \/ _ \
 -- | |\  |  __/ (_) | |_| | |  __/  __/
 -- |_| \_|\___|\___/ \__|_|  \___|\___|
@@ -54,8 +54,7 @@ return {
   -------------------
 
   config = function()
-
-   -----------------
+    -----------------
     -- COLORSCHEME --
     -----------------
     vim.cmd [[
@@ -66,7 +65,7 @@ return {
       highlight NeoTreeNormal guibg=#0d1117
       highlight NeotreeNormalNC guibg=#2D2D44
       highlight NeoTreeEndOfBuffer guibg=#0d1117
-      highlight NeoTreeFloatBorder guifg=#A8A1A1
+      highlight NeoTreeFloatBorder guifg=#888A88
       highlight NeoTreeTabActive guibg=#0d1117 guifg=#F5F8F6
       highlight NeoTreeGitUntracked guifg=#25ED17 gui=bold
       highlight NeoTreeGitStaged guifg=#09BFFD
@@ -75,26 +74,39 @@ return {
 
     ]]
 
-      require("neo-tree").setup({
-  default_component_configs = {
-    git_status = {
-      symbols = {
-        added     = "",
-        modified  = "",
-        deleted   = "󰧧",
-        renamed   = "󰑕",
-        untracked = "★",
-        ignored   = "◌",
-        unstaged  = "✗",
-        staged    = "✓",
-        conflict  = "",
-      }
-    }
-  }
-})
-
-
-    
-
+    require("neo-tree").setup({
+      default_component_configs = {
+        git_status = {
+          symbols = {
+            added     = "",
+            modified  = "",
+            deleted   = "󰧧",
+            renamed   = "󰑕",
+            untracked = "★",
+            ignored   = "◌",
+            unstaged  = "✗",
+            staged    = "✓",
+            conflict  = "",
+          }
+        }
+      },
+      window = {
+        position = "float",
+        popup = {
+          size = {
+            height = "90%",
+            width = "70%",
+          },
+          position = "50%",
+          border = {
+            style = "rounded",
+            text = {
+              top = "",
+            },
+            highlight ="NeoTreeFloatBorder",
+          },
+        },
+      },
+    })
   end
 }

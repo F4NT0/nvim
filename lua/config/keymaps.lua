@@ -15,6 +15,19 @@
 
 -- Ctrl + L = Open Lazy Git in a Floating window
 
+
+--------
+-- CMP
+--------
+
+-- Ctrl + K = Previous Suggestions
+-- Ctrl + J = Next Suggestions
+-- Ctrl + B = Scroll docs below
+-- Ctrl + Space = Show completion suggestions
+-- Ctrl + F = Scroll docs above
+-- Ctrl + E = Close completion window
+-- Enter = Confirm Selection
+
 ------------
 -- COMMENT
 ------------

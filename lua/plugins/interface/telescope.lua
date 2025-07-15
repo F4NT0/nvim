@@ -20,8 +20,10 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local builtin = require("telescope.builtin")
-
-      
+      vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#888A88' })
+      vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#888A88' })
+      vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#888A88' })
+      vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#888A88' })
     end
 
   },

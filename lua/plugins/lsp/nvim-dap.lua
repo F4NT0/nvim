@@ -1,3 +1,16 @@
+----------------------------------------------------
+--  _____          _____  
+-- |  __ \   /\   |  __ \ 
+-- | |  | | /  \  | |__) |
+-- | |  | |/ /\ \ |  ___/ 
+-- | |__| / ____ \| |     
+-- |_____/_/    \_\_|     
+-- ----------------------------------------------------
+--- GITHUB:            https://github.com/mfussenegger/nvim-dap
+--- GITHUB DEPENDENCY: https://github.com/rcarriga/nvim-dap-ui
+--- GITHUB DEPENDENCY: https://github.com/nvim-neotest/nvim-nio
+--- DESCRIPTION: Debug Adapter Protocol implementation for Neovim
+
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
@@ -19,12 +32,5 @@ return {
     dap.listeners.before.launch.dapui_config = function()
       dapui.open()
     end
-
-    ------------
-    -- COMMANDS
-    ------------ 
-    
-    
-
   end
 }
