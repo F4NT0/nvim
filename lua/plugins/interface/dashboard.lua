@@ -43,7 +43,7 @@ return {
             icon_hl = 'Title',
             desc = ' Find files',
             desc_hl = 'String',
-            key = '<leader>p',
+            key = 'Ctrl + Q',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'Telescope find_files'
@@ -53,7 +53,7 @@ return {
             icon_hl = 'Title',
             desc = ' Search for a word in the code',
             desc_hl = 'String',
-            key = '<leader>s',
+            key = 'Ctrl + S',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'Telescope live_grep'
@@ -63,7 +63,7 @@ return {
             icon_hl = 'Title',
             desc = ' Show files and folders',
             desc_hl = 'String',
-            key = '<leader>f',
+            key = 'Ctrl + F',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'Neotree filesystem float'
@@ -71,19 +71,9 @@ return {
           {
             icon = '',
             icon_hl = 'Title',
-            desc = ' Show git status',
-            desc_hl = 'String',
-            key = '<leader>b',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Neotree float git_status'
-          },
-          {
-            icon = '',
-            icon_hl = 'Title',
             desc = ' Open Lazy Git',
             desc_hl = 'String',
-            key = '<leader>l',
+            key = 'Ctrl + L',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'LazyGit'
@@ -93,7 +83,7 @@ return {
             icon_hl = 'Title',
             desc = ' Open/Close terminal',
             desc_hl = 'String',
-            key = '<leader>t',
+            key = 'Ctrl + T',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'ToggleTerm'
@@ -103,13 +93,18 @@ return {
             icon_hl = 'Title',
             desc = ' Open/Close Gemini terminal',
             desc_hl = 'String',
-            key = '<leader>g',
+            key = 'Ctrl + G',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'lua require("toggleterm.terminal").Terminal:new({ cmd = "gemini", direction = "float", float_ops = { border = "double" }, hidden = true }):toggle()'
           },
         },
-        footer = {}  --your footer
+        footer = {
+          "",
+          "  " .. os.date("%A, %d %B %Y | %H:%M:%S"),
+          "",
+
+        }  --your footer
       },
     })
   end
