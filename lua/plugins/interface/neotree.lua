@@ -63,7 +63,7 @@ return {
       highlight NeoTreeFileName guifg=#FEFEFF
       highlight NeoTreeFileNameOpened guifg=#F19706 gui=bold
       highlight NeoTreeNormal guibg=#0d1117
-      highlight NeotreeNormalNC guibg=#2D2D44
+      highlight NeotreeNormalNC guibg=#0D1117
       highlight NeoTreeEndOfBuffer guibg=#0d1117
       highlight NeoTreeFloatBorder guifg=#888A88
       highlight NeoTreeTabActive guibg=#0d1117 guifg=#F5F8F6
@@ -91,7 +91,7 @@ return {
         }
       },
       window = {
-        position = "float",
+        position = "left",
         popup = {
           size = {
             height = "90%",

@@ -88,10 +88,10 @@ vim.keymap.set('n','<A-c>', '<Cmd>BufferClose<CR>', { desc = "Close Current tab"
 -------------
 
 -- Ctrl + F = Open File System in a Float Window
-vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', { desc = "Open Neotree FileSystem" })
+vim.keymap.set('n', '<C-f>', ':Neotree filesystem left<CR>', { desc = "Open Neotree FileSystem" })
 
--- Ctrl + B = Open Git Status from Neotree
-vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', { desc = "Open Neotree git status" })
+-- Ctrl + X = Close the Neotree
+vim.keymap.set('n', '<C-x>', ':Neotree close<CR>', { desc = "Close the Neotree Filesystem" })
 
 --------------
 -- TELESCOPE
@@ -115,7 +115,7 @@ vim.keymap.set("n","<C-g>", function() require("toggleterm.terminal").Terminal:n
 -- DAP (Debug Application)
 ----------------------------
 
--- Space + D + T = Debug Toggle Breakpoint
+-- Space + D + T = Debug Toggle Breakpoint
 vim.keymap.set('n', '<leader>dt', require("dap").toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
 
 -- Space + D + S = Debug Start

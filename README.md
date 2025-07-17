@@ -60,8 +60,8 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | Keybinding | Action | Plugin |
 |---|---|---|
 | `Ctrl + L` | Open Lazy Git | Lazygit.nvim |
-| `Ctrl + F` | Open File System in a Float Window | Neo-tree.nvim |
-| `Ctrl + B` | Open Git Status from Neotree | Neo-tree.nvim |
+| `Ctrl + F` | Open File System in a Left Window | Neo-tree.nvim |
+| `Ctrl + X` | Close Neotree when inactive | Neo-tree.nvim |
 | `Ctrl + Q` | Open File Search in Telescope | Telescope.nvim |
 | `Ctrl + S` | Open Word Search in Telescope | Telescope.nvim |
 | `Ctrl + T` | Open a terminal in a float window | Toggleterm.nvim |
