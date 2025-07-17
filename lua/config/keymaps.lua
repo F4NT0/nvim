@@ -54,16 +54,44 @@
 --    <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
 --    delete(functi*on calls)     dsf             function calls
 
+-----------
+-- BARBAR
+-----------
+
+-- Alt + , = Change tab to the previous one
+vim.keymap.set('n','<A-,>', '<Cmd>BufferPrevious<CR>', { desc = "Change tab to previous one" })
+-- Alt + . = Change tab to the next one
+vim.keymap.set('n','<A-.>', '<Cmd>BufferNext<CR>', { desc = "Change tab to the next one" })
+-- Alt + < = Reorder tabs to the left
+vim.keymap.set('n','<A-<>', '<Cmd>BufferMovePrevious<CR>', { desc = "Reorder the tab to left" })
+-- Alt + > = Reorder tabs to the right
+vim.keymap.set('n','<A->>', '<Cmd>BufferMoveNext<CR>', { desc = "Reorder the tab to right" })
+-- Alt + 1 = Move to tab 1
+vim.keymap.set('n','<A-1>', '<Cmd>BufferGoto 1<CR>', { desc = "Move to tab 1" })
+-- Alt + 2 = Move to tab 2
+vim.keymap.set('n','<A-2>', '<Cmd>BufferGoto 2<CR>', { desc = "Move to tab 2" })
+-- Alt + 3 = Move to tab 3
+vim.keymap.set('n','<A-3>', '<Cmd>BufferGoto 3<CR>', { desc = "Move to tab 3" })
+-- Alt + 4 = Move to tab 4
+vim.keymap.set('n','<A-4>', '<Cmd>BufferGoto 4<CR>', { desc = "Move to tab 4" })
+-- Alt + 5 = Move to tab 5
+vim.keymap.set('n','<A-5>', '<Cmd>BufferGoto 5<CR>', { desc = "Move to tab 5" })
+-- Alt + 6 = Move to tab 6
+vim.keymap.set('n','<A-6>', '<Cmd>BufferGoto 6<CR>', { desc = "Move to tab 6" })
+-- Alt + P = Pin current tab
+vim.keymap.set('n','<A-p>', '<Cmd>BufferPin<CR>', { desc = "Pin current tab" })
+-- Alt + C = Close current tab
+vim.keymap.set('n','<A-c>', '<Cmd>BufferClose<CR>', { desc = "Close Current tab"})
 
 ------------
 -- NEOTREE
 -------------
 
 -- Ctrl + F = Open File System in a Float Window
-vim.keymap.set('n', '<C-f>', ':Neotree filesystem float<CR>', {})
+vim.keymap.set('n', '<C-f>', ':Neotree filesystem left<CR>', { desc = "Open Neotree FileSystem" })
 
--- Ctrl + B = Open Git Status from Neotree
-vim.keymap.set('n', '<C-b>', ':Neotree float git_status<CR>', {})
+-- Ctrl + X = Close the Neotree
+vim.keymap.set('n', '<C-x>', ':Neotree close<CR>', { desc = "Close the Neotree Filesystem" })
 
 --------------
 -- TELESCOPE
@@ -87,7 +115,7 @@ vim.keymap.set("n","<C-g>", function() require("toggleterm.terminal").Terminal:n
 -- DAP (Debug Application)
 ----------------------------
 
--- Space + D + T = Debug Toggle Breakpoint
+-- Space + D + T = Debug Toggle Breakpoint
 vim.keymap.set('n', '<leader>dt', require("dap").toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
 
 -- Space + D + S = Debug Start

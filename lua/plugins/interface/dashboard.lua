@@ -66,7 +66,7 @@ return {
             key = 'Ctrl + F',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Neotree filesystem float'
+            action = 'Neotree filesystem left'
           },
           {
             icon = '',
