@@ -84,6 +84,21 @@ vim.keymap.set('n','<A-p>', '<Cmd>BufferPin<CR>', { desc = "Pin current tab" })
 vim.keymap.set('n','<A-c>', '<Cmd>BufferClose<CR>', { desc = "Close Current tab"})
 
 ------------
+-- GITSIGNS
+------------
+local gitsigns = require("gitsigns")
+-- Space + H + S = Stage the actual hunk into the index (like git add)
+vim.keymap.set('n','<leader>hs',gitsigns.stage_hunk,{ desc = "Stage the actual hunk(like git add)" })
+-- Space + H + R = Undo the actual hunk alterations
+vim.keymap.set('n','<leader>hr',gitsigns.reset_hunk,{ desc = "Undo the actual hunk" })
+-- Space + H + Shift + S = Stage All changes from the file
+vim.keymap.set('n','<leader>hS',gitsigns.stage_buffer,{ desc = "Stage All buffer (all file)" })
+-- Space + H + Shift + R = Undo All changes from the file 
+vim.keymap.set('n','<leader>hR',gitsigns.reset_buffer,{ desc = "Undo All buffer (all file)" })
+-- Space + H + P = Preview the hunk
+vim.keymap.set('n','<leader>hp',gitsigns.preview_hunk,{ desc = "Preview the hunk of code changed" })
+
+------------
 -- NEOTREE
 -------------
 
