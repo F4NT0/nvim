@@ -10,7 +10,7 @@
 -- DESCRIPTION: Status bar to style neovim task bar
 
 return {
-  
+
   ------------------
   -- INSTALLATION --
   ------------------
@@ -25,7 +25,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "iceberg_dark"     
+        theme = "iceberg_dark"
       }
     })
   end
