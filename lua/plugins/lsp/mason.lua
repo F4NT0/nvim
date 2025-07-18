@@ -1,10 +1,13 @@
--------------------------------------------
---  __  __                       
--- |  \/  | __ _ ___  ___  _ __  
--- | |\/| |/ _` / __|/ _ \| '_ \ 
--- | |  | | (_| \__ \ (_) | | | |
--- |_|  |_|\__,_|___/\___/|_| |_|
---------------------------------------------
+--[[
+  __  __                       
+ |  \/  |                      
+ | \  / | __ _ ___  ___  _ __  
+ | |\/| |/ _` / __|/ _ \| '_ \ 
+ | |  | | (_| \__ \ (_) | | | |
+ |_|  |_|\__,_|___/\___/|_| |_|
+                               
+]]
+
 --- GITHUB: https://github.com/williamboman/mason.nvim FOR MASON
 --- GITHUB: https://github.com/williamboman/mason-lspconfig.nvim FOR MASON LSP CONFIGURATION
 --- GITHUB: https://github.com/williamboman/

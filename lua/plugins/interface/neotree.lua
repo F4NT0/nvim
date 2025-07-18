@@ -1,15 +1,16 @@
--------------------------------------------
---  _   _            _
--- | \ | | ___  ___ | |_ _ __ ___  ___
--- |  \| |/ _ \/ _ \| __| '__/ _ \/ _ \
--- | |\  |  __/ (_) | |_| | |  __/  __/
--- |_| \_|\___|\___/ \__|_|  \___|\___|
----------------------------------------------
----
--- GITHUB: https://github.com/nvim-neo-tree/neo-tree.nvim
--- DESCRIPTION: Show all files and directories inside the current directory
---
--- COMMANDS:
+--[[
+  _   _            _                 
+ | \ | |          | |                
+ |  \| | ___  ___ | |_ _ __ ___  ___ 
+ | . ` |/ _ \/ _ \| __| '__/ _ \/ _ \
+ | |\  |  __/ (_) | |_| | |  __/  __/
+ |_| \_|\___|\___/ \__|_|  \___|\___|
+                                     
+]]
+
+--- GITHUB: https://github.com/nvim-neo-tree/neo-tree.nvim
+--- DESCRIPTION: Show all files and directories inside the current directory
+--- COMMANDS:
 --
 -- :Neotree toggle              - Open or close the file tree
 -- :Neotree reveal               - Open the tree to the currently active file
@@ -36,11 +37,6 @@
 -- O: Open the selected file with the default system application
 
 return {
-
-  ------------------
-  -- INSTALLATION --
-  ------------------
-
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
@@ -54,9 +50,8 @@ return {
   -------------------
 
   config = function()
-    -----------------
-    -- COLORSCHEME --
-    -----------------
+
+    --- Colorscheme
     vim.cmd [[
       highlight NeoTreeDirectoryName guifg=#F5F8F6
       highlight NeoTreeDirectoryIcon guifg=#F9F8F8
@@ -74,6 +69,7 @@ return {
 
     ]]
 
+    --- Git status Icons
     require("neo-tree").setup({
       default_component_configs = {
         git_status = {
@@ -90,6 +86,8 @@ return {
           }
         }
       },
+
+      --- Floating window organization
       window = {
         position = "left",
         popup = {

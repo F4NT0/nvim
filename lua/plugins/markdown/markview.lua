@@ -1,18 +1,21 @@
---------------------------------------------------------------------
---  __  __          _____  _  ____      _______ ________          __
--- |  \/  |   /\   |  __ \| |/ /\ \    / /_   _|  ____\ \        / /
--- | \  / |  /  \  | |__) | ' /  \ \  / /  | | | |__   \ \  /\  / / 
--- | |\/| | / /\ \ |  _  /|  <    \ \/ /   | | |  __|   \ \/  \/ /  
--- | |  | |/ ____ \| | \ \| . \    \  /   _| |_| |____   \  /\  /   
--- |_|  |_/_/    \_\_|  \_\_|\_\    \/   |_____|______|   \/  \/    
----------------------------------------------------------------------
----
--- GITHUB: https://github.com/OXY2DEV/markview.nvim
--- DESCRIPTION: A markdown previewer for neovim
--- COMMANDS:
---   :Markview Toggle
---   :Markview split
---   :Markview hybrid
+--[[
+
+  __  __            _           _               
+ |  \/  |          | |         (_)              
+ | \  / | __ _ _ __| | ____   ___  _____      __
+ | |\/| |/ _` | '__| |/ /\ \ / / |/ _ \ \ /\ / /
+ | |  | | (_| | |  |   <  \ V /| |  __/\ V  V / 
+ |_|  |_|\__,_|_|  |_|\_\  \_/ |_|\___| \_/\_/  
+                                                
+]]
+
+
+--- GITHUB: https://github.com/OXY2DEV/markview.nvim
+--- DESCRIPTION: A markdown previewer for neovim
+--- COMMANDS:
+---   :Markview Toggle
+---   :Markview split
+---   :Markview hybrid
 
 return {
   "OXY2DEV/markview.nvim",

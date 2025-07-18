@@ -1,63 +1,8 @@
-# FantoVim - The Neovim IDE
+# Keymaps && Infos
 
-This is my personal Neovim configuration with a set of plugins to enhance the development experience.
-This Project is for **WINDOWS 11** only, all configurations are made into this Operational System.
+## Plugin Keymaps
 
-To get help use the command `:Khelp` into the command mode
-
-## Directory Organization
-
-The configuration files are organized as follows:
-
-- `init.lua`: The main entry point for the Neovim configuration.
-- `lazy-lock.json`:  Manages the installed plugins and their versions.
-- `lua/`: Contains all the Lua configuration files.
-  - `plugins.lua`:  Loads all the plugins from the `lua/plugins` directory.
-  - `config/`: Contains the configuration files for the plugins.
-    - `autocmds.lua`:  Contains the autocommands.
-    - `jdtls.lua`: Contains the configuration for the Java LSP.
-    - `keymaps.lua`: Contains all the keymaps.
-  - `plugins/`: Contains the plugin specifications.
-    - `init.lua`:  Loads all the plugins from the `lua/plugins` directory.
-    - `git-manager/`: Contains the git manager plugins.
-    - `interface/`: Contains the interface plugins.
-    - `lsp/`: Contains the LSP plugins.
-    - `markdown/`: Contains the markdown plugins.
-    - `programming/`: Contains the programming plugins.
-
-## Installation
-
-To use this configuration, you need to have Neovim installed on your Windows 11 machine.
-The location of the files is in `C:\Users\user\Appdata\Local\nvim`
-
-## Plugins
-
-
-- [catppuccin/nvim](https://github.com/catppuccin/nvim) -  A collection of themes for Neovim.
-- [nvimdev/dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) - A dashboard that appears when starting Neovim without a specific file.
-- [kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) - A plugin to integrate Lazygit into Neovim.
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - A status bar to style the Neovim taskbar.
-- [OXY2DEV/markview.nvim](https://github.com/OXY2DEV/markview.nvim) - A markdown previewer for Neovim.
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim) - An LSP manager to install language configurations.
-- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) - A file explorer tree.
-- [folke/noice.nvim](https://github.com/folke/noice.nvim) - A plugin that replaces the UI for messages, cmdline and popupmenu.
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - A highly extendable fuzzy finder.
-- [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) - A plugin to manage terminals inside Neovim.
-- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - A plugin for code highlighting and indentation.
-- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - A completion engine for Neovim.
-- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - A plugin to comment code.
-- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - A debug adapter protocol implementation for Neovim.
-- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - A collection of configurations for the Neovim LSP client.
-- [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) - An extension for nvim-lspconfig to configure jdtls.
-- [nvim-java/springboot-nvim](https://github.com/nvim-java/springboot-nvim) - A plugin to help with Spring Boot development.
-- [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim) - A tabline plugin for Neovim.
-- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround) - A plugin to surround text with pairs of characters.
-
-## Keymaps
-
-### Plugin Keymaps
-
-#### Open basic plugins
+### Open basic plugins
 
 | Keybinding | Action | Plugin |
 |---|---|---|
@@ -69,7 +14,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | `Ctrl + T` | Open a terminal in a float window | Toggleterm.nvim |
 | `Ctrl + G` | Open Gemini CLI from Terminal | Toggleterm.nvim |
 
-#### Code commands
+### Code commands
 
 | Keybinding | Action | Plugin |
 |---|---|---|
@@ -86,7 +31,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | `Space + S + D` | Show Diagnostic of the Warning or Error | nvim-lspconfig |
 | `Space + C + F` | Format the code into the specific language | nvim-lspconfig |
 
-#### Spring Boot commands
+### Spring Boot commands
 
 | Keybinding | Action | Plugin |
 |---|---|---|
@@ -95,7 +40,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | `Shift + J + I` | Create Java Interface | springboot-nvim |
 | `Shift + J + E` | Create Java Enum | springboot-nvim |
 
-#### Tab commands
+### Tab commands
 
 | Keybinding | Action | Plugin |
 |---|---|---|
@@ -112,7 +57,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | `Alt + P` | Pin current tab | barbar.nvim |
 | `Alt + C` | Close current tab | barbar.nvim |
 
-#### Comands to surround words
+### Comands to surround words
 
 | Keybinding | Action | Plugin
 |---|---|---|
@@ -124,7 +69,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | `C + S + T + H + 1 + Enter` | Change surrounding tag to h1 | nvim-surround |
 | `D + S + F` | Delete surrounding function call | nvim-surround |
 
-#### Comands to comment lines
+### Comands to comment lines
 
 | Keybinding | Action | Plugin
 |---|---|---|
@@ -141,7 +86,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | `Ctrl + E` | Close completion window | nvim-cmp |
 | `Enter` | Confirm Selection | nvim-cmp |
 
-#### Commands to deal with gitsigns
+### Commands to deal with gitsigns
 
 | Keybinding | Action | Plugin
 |---|---|---|
@@ -152,9 +97,9 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 |`Space + H + P` | Preview the hunk|gitsigns
 
 
-### Basic Neovim Commands
+## Basic Neovim Commands
 
-#### Normal Mode (`Esc`)
+### Normal Mode (`Esc`)
 
 | Action | Command |
 |---|---|
@@ -179,7 +124,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | Delete line | `dd` |
 | Open file explorer | `:Ex` or `:Explore` |
 
-#### Insert Mode (`i`, `I`, `a`, `A`, `o`, `O`)
+### Insert Mode (`i`, `I`, `a`, `A`, `o`, `O`)
 
 | Action | Command |
 |---|---|
@@ -187,7 +132,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | New line below / above | `o` / `O` |
 | Exit insert mode | `Esc` |
 
-#### Visual Mode (`v`, `V`, `Ctrl-v`)
+### Visual Mode (`v`, `V`, `Ctrl-v`)
 
 | Action | Command |
 |---|---|
@@ -198,7 +143,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | Indent / Unindent | `>` / `<` |
 | Exit visual mode | `Esc` |
 
-#### Command Mode (`:`)
+### Command Mode (`:`)
 
 | Action | Command |
 |---|---|
@@ -206,7 +151,7 @@ The location of the files is in `C:\Users\user\Appdata\Local\nvim`
 | Open terminal | `:terminal` |
 | Run shell command | `:!command` (e.g., `:!ls`) |
 
-#### Useful Tips
+## Useful Tips
 
 - **Repeat last command**: `.`
 - **Record macro**: `q<letter>` (e.g., `qa`), stop with `q`
