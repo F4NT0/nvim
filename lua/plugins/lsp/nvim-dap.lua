@@ -1,12 +1,17 @@
-----------------------------------------------------
---  _____          _____  
--- |  __ \   /\   |  __ \ 
--- | |  | | /  \  | |__) |
--- | |  | |/ /\ \ |  ___/ 
--- | |__| / ____ \| |     
--- |_____/_/    \_\_|     
--- ----------------------------------------------------
---- GITHUB:            https://github.com/mfussenegger/nvim-dap
+--[[
+
+  _   _       _                    _             
+ | \ | |     (_)                  | |            
+ |  \| |_   ___ _ __ ___ ______ __| | __ _ _ __  
+ | . ` \ \ / / | '_ ` _ \______/ _` |/ _` | '_ \ 
+ | |\  |\ V /| | | | | | |    | (_| | (_| | |_) |
+ |_| \_| \_/ |_|_| |_| |_|     \__,_|\__,_| .__/ 
+                                          | |    
+                                          |_|    
+]]
+
+
+--- GITHUB: https://github.com/mfussenegger/nvim-dap
 --- GITHUB DEPENDENCY: https://github.com/rcarriga/nvim-dap-ui
 --- GITHUB DEPENDENCY: https://github.com/nvim-neotest/nvim-nio
 --- DESCRIPTION: Debug Adapter Protocol implementation for Neovim

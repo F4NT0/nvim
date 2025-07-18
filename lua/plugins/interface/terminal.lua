@@ -1,11 +1,14 @@
---------------------------------------------------
---  _____                   _             _ 
--- |_   _|__ _ __ _ __ ___ (_)_ __   __ _| |
---   | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
---   | |  __/ |  | | | | | | | | | | (_| | |
---   |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
---------------------------------------------------
----
+--[[
+
+  _______                  _             _ 
+ |__   __|                (_)           | |
+    | | ___ _ __ _ __ ___  _ _ __   __ _| |
+    | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
+    | |  __/ |  | | | | | | | | | | (_| | |
+    |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
+
+]]
+
 --- GITHUB: https://github.com/akinsho/toggleterm.nvim
 --- DESCRIPTION: A neovim plugin to persist and toggle terminals during development.
 --- SHORTCUTS:
@@ -19,7 +22,7 @@
 ---   :TermExec cmd="..."
 
 return {
-  
+
   "akinsho/toggleterm.nvim",
   version = "*",
 
@@ -33,7 +36,7 @@ return {
       },
       shell = 'powershell.exe -NoLogo',
     }
-      
+
     local Terminal = require("toggleterm.terminal").Terminal
 
     local gemini_term = Terminal:new({
@@ -44,6 +47,5 @@ return {
           },
           hidden = true,
       })
-     
   end
 }

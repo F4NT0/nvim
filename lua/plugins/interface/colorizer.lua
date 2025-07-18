@@ -1,7 +1,16 @@
---
---
---
--- GITHUB: https://github.com/NvChad/nvim-colorizer
+--[[
+            _            _              
+           | |          (_)             
+   ___ ___ | | ___  _ __ _ _______ _ __ 
+  / __/ _ \| |/ _ \| '__| |_  / _ \ '__|
+ | (_| (_) | | (_) | |  | |/ /  __/ |   
+  \___\___/|_|\___/|_|  |_/___\___|_|   
+
+]]
+
+
+--- GITHUB: https://github.com/NvChad/nvim-colorizer
+--- DESCRIPTION: Show the colors of the hexadecimals in the file
 
 return {
   {

@@ -1,19 +1,23 @@
-------------------------------------------
---        _ _       _                 
---       (_) |     (_)                
---   __ _ _| |_ ___ _  __ _ _ __  ___ 
---  / _` | | __/ __| |/ _` | '_ \/ __|
--- | (_| | | |_\__ \ | (_| | | | \__ \
---  \__, |_|\__|___/_|\__, |_| |_|___/
---   __/ |             __/ |          
---  |___/             |___/           
-------------------------------------------
+--[[
+
+   _____ _ _       _                 
+  / ____(_) |     (_)                
+ | |  __ _| |_ ___ _  __ _ _ __  ___ 
+ | | |_ | | __/ __| |/ _` | '_ \/ __|
+ | |__| | | |_\__ \ | (_| | | | \__ \
+  \_____|_|\__|___/_|\__, |_| |_|___/
+                      __/ |          
+                     |___/           
+]]
+
 --- GITHUB: https://github.com/lewis6991/gitsigns.nvim
 --- DESCRIPTION: Plugin to show git changed line in the left of the file
 --- COMMANDS:
 ---   - SPACE + H + S = Stage changed
 ---   - SPACE + H + R = Reset changes
 ---
+
+
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" }, -- Load on file open
