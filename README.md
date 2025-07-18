@@ -1,9 +1,14 @@
-# FantoVim - The Neovim IDE
+<p align="center">
+  <img src="https://github.com/F4NT0/nvim-images/blob/7d74d883d35f13207f27b4c4c2a1ac6c7a8fe7eb/neovim_logo.png"
+</p>
 
-This is my personal Neovim configuration with a set of plugins to enhance the development experience.
-This Project is for **WINDOWS 11** only, all configurations are made into this Operational System.
+---
 
-To get help use the command `:Khelp` into the command mode
+🡢 This is my personal Neovim configuration with a set of plugins to enhance the development experience.
+
+🡢 This Project is for **WINDOWS 11** only, all configurations are made into this Operational System.
+
+🡢 To know the available keymaps use the command `:Khelp` into the command mode!
 
 ## Directory Organization
 
