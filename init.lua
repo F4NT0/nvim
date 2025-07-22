@@ -12,6 +12,13 @@ vim.cmd("filetype plugin indent on") -- Allow auto indent depending of file type
 vim.cmd("set mouse=a") -- Enable mouse click
 vim.g.mapleader = " "
 
+-------------------------
+-- WINDOWS CONFIGURATION
+-------------------------
+vim.opt.shell = "powershell"
+vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+
+
 -----------------------------------------
 -- LAZY.VIM PACKAGE MANAGER INSTALLATION
 -----------------------------------------

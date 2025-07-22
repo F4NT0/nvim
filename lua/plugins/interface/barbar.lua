@@ -1,14 +1,14 @@
---[[ 
-  _                _                
- | |              | |               
- | |__   __ _ _ __| |__   __ _ _ __ 
+--[[
+  _                _
+ | |              | |
+ | |__   __ _ _ __| |__   __ _ _ __
  | '_ \ / _` | '__| '_ \ / _` | '__|
- | |_) | (_| | |  | |_) | (_| | |   
- |_.__/ \__,_|_|  |_.__/ \__,_|_|   
+ | |_) | (_| | |  | |_) | (_| | |
+ |_.__/ \__,_|_|  |_.__/ \__,_|_|
 
 ]]
 
---- GITHUB: https://github.com/romgrk/barbar.nvim 
+--- GITHUB: https://github.com/romgrk/barbar.nvim
 --- DESCRIPTION: Plugin to improve the creation and usage of Tabs in Neovim
 --- COMMANDS:
 ---  - ALT + T = open new tab empty
@@ -18,9 +18,10 @@
 ---  - ALT + . = got to next tab
 
 return {
-  {'romgrk/barbar.nvim',
+  {
+    'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
