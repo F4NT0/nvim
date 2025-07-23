@@ -27,8 +27,11 @@ return {
       capabilities = capabilities,
     })
     -- C# Setup
-    lspconfig.csharp_ls.setup({
+    lspconfig.omnisharp.setup({
       capabilities = capabilities,
+      enable_import_completion = true,
+      organize_imports_on_format = true,
+      enable_roslyn_analyzers = true,
     })
     -- Java Setup
     lspconfig.jdtls.setup({
@@ -37,6 +40,19 @@ return {
     -- Yaml Setup
     lspconfig.yamlls.setup({
       capabilities = capabilities,
+    })
+    -- Go Setup
+    lspconfig.gopls.setup({
+      capabilities = capabilities,
+      settings = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+            shadow = true,
+          },
+          staticcheck = true,
+        }
+      }
     })
   end,
 }

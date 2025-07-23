@@ -1,13 +1,14 @@
------------------------------------------------
---  _  __                                    
--- | |/ /                                    
--- | ' / ___ _   _ _ __ ___   __ _ _ __  ___ 
--- |  < / _ \ | | | '_ ` _ \ / _` | '_ \/ __|
--- | . \  __/ |_| | | | | | | (_| | |_) \__ \
--- |_|\_\___|\__, |_| |_| |_|\__,_| .__/|___/
---            __/ |               | |        
---           |___/                |_|        
---------------------------------------------------
+--[[
+  _  __                                    
+ | |/ /                                    
+ | ' / ___ _   _ _ __ ___   __ _ _ __  ___ 
+ |  < / _ \ | | | '_ ` _ \ / _` | '_ \/ __|
+ | . \  __/ |_| | | | | | | (_| | |_) \__ \
+ |_|\_\___|\__, |_| |_| |_|\__,_| .__/|___/
+            __/ |               | |        
+           |___/                |_|        
+--]]
+
 
 -------------
 -- LAZY GIT
@@ -170,18 +171,7 @@ vim.keymap.set('n', '<leader>sd', vim.diagnostic.open_float, { desc = "[S]how [D
 -- Space + C + F = Format the code into the specific language
 vim.keymap.set('n','<leader>cf', vim.lsp.buf.format, { desc = "[C]ode [F]ormat" })
 
---------------------
--- SPRING BOOT NVIM 
--------------------- 
+-- Space + D + L = Show diagnostic list
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "[D]iagnostics [L]ists" })
 
--- Space + Shift + J + R = Run Spring Boot
-vim.keymap.set("n", "<leader>Jr", require("springboot-nvim").boot_run, { desc = "[J]ava [R]un Spring Boot" })
 
--- Space + Shift + J + C = Create Java Class
-vim.keymap.set("n", "<leader>Jc", require("springboot-nvim").generate_class, { desc = "[J]ava Create [C]lass" })
-
--- Space + Shift + J + I = Create Java Interface
-vim.keymap.set("n", "Ji", require("springboot-nvim").generate_interface, { desc = "[J]ava Create [I]nterface" })
-
--- Space + Shift + J + E = Create Java Enum
-vim.keymap.set("n", "Je", require("springboot-nvim").generate_enum, { desc = "[J]ava Create [E]num" })

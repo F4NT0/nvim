@@ -49,12 +49,14 @@ return {
     local null_ls = require("null-ls") -- The name is from the old project
     null_ls.setup({
       sources = {
-        -- Setup lua formatter
-        null_ls.builtins.formatting.stylua,
-        -- Setup eslint linter for javascript
-        require("none-ls.diagnostics.eslint_d"),
-        -- Setup prettier to format languages, that are not lua
-        null_ls.builtins.formatting.prettier
+        -- Formattings
+        null_ls.builtins.formatting.stylua, -- Lua linter
+        null_ls.builtins.formatting.prettier, -- To other languages
+        -- Linters
+        null_ls.builtins.diagnostics.checkstyle, -- Java
+        null_ls.builtins.diagnostics.dotnet_diagnostic, -- C#
+        null_ls.builtins.diagnostics.flake8, -- Python
+        null_ls.builtins.diagnostics.revive, -- Go
       }
     })
   end

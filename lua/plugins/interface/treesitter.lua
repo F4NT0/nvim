@@ -30,7 +30,20 @@ return {
   config = function()
     local tree = require("nvim-treesitter.configs")
     tree.setup({
-      ensure_installed = {"lua", "c_sharp", "java", "powershell", "toml", "sql", "json", "yaml", "xml"},
+      ensure_installed = {
+        "lua", 
+        "c_sharp", 
+        "java", 
+        "powershell", 
+        "toml", 
+        "sql", 
+        "json", 
+        "yaml", 
+        "xml",
+        "latex", -- Install first the npm install -g tree-sitter-cli
+      },
+      sync_install = false,
+      auto_install = true,
       highlight = { enable = true },
       indent = { enable = true }
     })
