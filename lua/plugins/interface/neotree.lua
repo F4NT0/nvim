@@ -48,7 +48,6 @@ return {
   -------------------
   -- CONFIGURATION --
   -------------------
-
   config = function()
 
     --- Colorscheme
@@ -105,6 +104,16 @@ return {
           },
         },
       },
-    })
+
+      -- Showing all hidden files
+
+    filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      }
+    },
+})
   end
 }

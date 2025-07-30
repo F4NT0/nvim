@@ -2,6 +2,7 @@
 
 ## Plugin Keymaps
 
+
 ### Open basic plugins
 
 | Keybinding | Action | Plugin |
@@ -13,6 +14,7 @@
 | `Ctrl + S` | Open Word Search in Telescope | Telescope.nvim |
 | `Ctrl + T` | Open a terminal in a float window | Toggleterm.nvim |
 | `Ctrl + G` | Open Gemini CLI from Terminal | Toggleterm.nvim |
+
 
 ### Code commands
 
@@ -31,14 +33,6 @@
 | `Space + S + D` | Show Diagnostic of the Warning or Error | nvim-lspconfig |
 | `Space + C + F` | Format the code into the specific language | nvim-lspconfig |
 
-### Spring Boot commands
-
-| Keybinding | Action | Plugin |
-|---|---|---|
-| `Space + Shift + J + R` | Run Spring Boot | springboot-nvim |
-| `Space + Shift + J + C` | Create Java Class | springboot-nvim |
-| `Shift + J + I` | Create Java Interface | springboot-nvim |
-| `Shift + J + E` | Create Java Enum | springboot-nvim |
 
 ### Tab commands
 
@@ -57,6 +51,7 @@
 | `Alt + P` | Pin current tab | barbar.nvim |
 | `Alt + C` | Close current tab | barbar.nvim |
 
+
 ### Comands to surround words
 
 | Keybinding | Action | Plugin
@@ -68,6 +63,7 @@
 | `C + S + ' + "` | Change surrounding single quotes to double quotes | nvim-surround |
 | `C + S + T + H + 1 + Enter` | Change surrounding tag to h1 | nvim-surround |
 | `D + S + F` | Delete surrounding function call | nvim-surround |
+
 
 ### Comands to comment lines
 
