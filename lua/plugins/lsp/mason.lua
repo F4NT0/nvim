@@ -12,7 +12,8 @@
 --- GITHUB: https://github.com/williamboman/mason-lspconfig.nvim FOR MASON LSP CONFIGURATION
 --- GITHUB: https://github.com/williamboman/
 --- DESCRIPTION: This is the LSP manager to install language configurations
---- WARNING: For C# need to install the tool: dotnet tool install --global csharp-ls
+--- WARNING: For C# need to install the tool: dotnet tool install --global csharp-ls.
+--- TODO: Explain how to make the neovim install the dependencies to run this project in another windows.
 
 return {
 

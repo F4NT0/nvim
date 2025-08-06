@@ -174,4 +174,11 @@ vim.keymap.set('n','<leader>cf', vim.lsp.buf.format, { desc = "[C]ode [F]ormat" 
 -- Space + D + L = Show diagnostic list
 vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "[D]iagnostics [L]ists" })
 
+-----------------
+-- TODO COMMENTS
+-----------------
+
+-- Space + T + D = Open Todo List into the Telescope
+vim.keymap.set('n', '<leader>td', '<cmd>TodoTelescope<CR>', { desc = "[T]o[D]o List" })
+
 

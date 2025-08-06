@@ -82,6 +82,12 @@
 | `Ctrl + E` | Close completion window | nvim-cmp |
 | `Enter` | Confirm Selection | nvim-cmp |
 
+### TODO Comments commands
+
+| Keybinding | Action | Plugin
+|---|---|---|
+| 
+
 ### Commands to deal with gitsigns
 
 | Keybinding | Action | Plugin

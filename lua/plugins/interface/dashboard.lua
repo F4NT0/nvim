@@ -97,12 +97,23 @@ return {
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'lua require("toggleterm.terminal").Terminal:new({ cmd = "gemini", direction = "float", float_ops = { border = "double" }, hidden = true }):toggle()'
           },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'Search To-do tasks',
+            desc_hl = 'String',
+            key = 'Space + T + D',
+            key_hl = 'Number',
+            key_format = ' %s',
+            action = 'TodoTelescope'
+          }
         },
         footer = {
           "",
           "  " .. os.date("%A, %d %B %Y | %H:%M:%S"),
           "",
-
+          "",
+          "To know the Keyboard shortcuts and command run the command `:Khelp`"
         }  --your footer
       },
     })
