@@ -41,6 +41,8 @@ return {
         "yaml", 
         "xml",
         "latex", -- Install first the npm install -g tree-sitter-cli
+        "markdown",
+        "markdown_inline"
       },
       sync_install = false,
       auto_install = true,
