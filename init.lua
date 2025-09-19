@@ -10,7 +10,8 @@ vim.cmd("set clipboard=unnamedplus") -- Using system clipboard
 vim.cmd("set cursorline") -- Hightlight current cursor line
 vim.cmd("filetype plugin indent on") -- Allow auto indent depending of file type
 vim.cmd("set mouse=a") -- Enable mouse click
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- Space is the master key
+vim.filetype.add({extension = { mdx = "markdown", },}) -- Enable mdx as markdown as well
 
 -----------------------------------------
 -- LAZY.VIM PACKAGE MANAGER INSTALLATION
