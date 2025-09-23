@@ -62,3 +62,4 @@
 - [nvim-java/springboot-nvim](https://github.com/nvim-java/springboot-nvim) - A plugin to help with Spring Boot development.
 - [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim) - A tabline plugin for Neovim.
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround) - A plugin to surround text with pairs of characters.
+- [lukas-reinke/indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - A plugin to show when start and stop methods 
