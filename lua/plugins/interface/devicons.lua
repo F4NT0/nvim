@@ -7,6 +7,11 @@ return {
           color = "#ad8dd7",
           name = "Csharp"
         },
+        csx = {
+          icon = "",
+          color = "#ad8dd7",
+          name = "Csharp"
+        },
         java = {
           icon = "",
           color = "#f59419",
