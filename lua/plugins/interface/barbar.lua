@@ -1,36 +1,28 @@
 --[[
-  _                _
- | |              | |
- | |__   __ _ _ __| |__   __ _ _ __
- | '_ \ / _` | '__| '_ \ / _` | '__|
- | |_) | (_| | |  | |_) | (_| | |
- |_.__/ \__,_|_|  |_.__/ \__,_|_|
 
-]]
+PLUGIN BARBAR
 
---- GITHUB: https://github.com/romgrk/barbar.nvim
---- DESCRIPTION: Plugin to improve the creation and usage of Tabs in Neovim
---- COMMANDS:
----  - ALT + T = open new tab empty
----  - ALT + 1-6 = move between tabs
----  - ALT + C = close current tab
----  - ALT + , = go to previous tab
----  - ALT + . = got to next tab
+-> DESCRIÇÃO: Abre novos arquivos como abas dentro do Neovim.
+-> PROJETO NO GITHUB: https://github.com/romgrk/barbar.nvim 
+-> COMANDOS NO TECLADO:
+ - ALT + T = Abre uma tab nova vazia
+ - ALT + 1-6 = Move entre as tabs existentes (até no máximo 6 tabs)
+ - ALT + C = Fecha a tab atual
+ - ALT + , = Vai para a tab anterior
+ - ALT + . = Vai para a próxima tab
+
+--]]
 
 return {
   {
     'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+      'lewis6991/gitsigns.nvim',    -- Adiciona o status do git na tab 
+      'nvim-tree/nvim-web-devicons', -- Adiciona os icones da linguagem na tab
     },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
     },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    version = '^1.0.0',
   },
 }

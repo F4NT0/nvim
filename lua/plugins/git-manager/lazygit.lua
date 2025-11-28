@@ -1,18 +1,14 @@
 --[[
-  _                           _ _   
- | |                         (_) |  
- | |     __ _ _____   _  __ _ _| |_ 
- | |    / _` |_  / | | |/ _` | | __|
- | |___| (_| |/ /| |_| | (_| | | |_ 
- |______\__,_/___|\__, |\__, |_|\__|
-                   __/ | __/ |      
-                  |___/ |___/       
-]]
 
---- GITHUB: https://github.com/kdheepak/lazygit.nvim
---- OBSERVATION: Install LazyGit before use in Neovim
---- COMMAND: choco install lazygit / winget install --id=JesseDuffield.Lazygit -e
---- DESCRIPTION: This project is going to open Lazygit in a floatin pannel
+PLUGIN LAZYGIT
+
+-> DESCRIÇÃO: Este plugin conecta o software lazygit no Neovim, abre uma tela flutuante.
+-> info: Precisa instalar o programa Lazygit antes: choco install lazygit / winget install --id=JesseDuffield.Lazygit -e
+-> PROJETO NO GITHUB: https://github.com/kdheepak/lazygit.nvim 
+-> COMANDOS DE TECLADO:
+  - CTRL + L = Abre o Lazygit no Neovim.
+
+--]]
 
 return {
   "kdheepak/lazygit.nvim",
@@ -25,7 +21,6 @@ return {
     "LazyGitFilterCurrentFile",
   },
 
-  -- To create a windows floating
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

@@ -1,15 +1,12 @@
 --[[
-  _                _ _            
- | |   _   _  __ _| (_)_ __   ___ 
- | |  | | | |/ _` | | | '_ \ / _ \
- | |__| |_| | (_| | | | | | |  __/
- |_____\__,_|\__,_|_|_|_| |_|\___|
 
-]]
+PLUGIN LUALINE
 
---- GITHUB: https://github.com/nvim-lualine/lualine.nvim
---- THEMES: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
---- DESCRIPTION: Status bar to style neovim task bar
+-> DESCRIÇÃO: Mostra uma barra de status embaixo do Neovim.
+-> PROJETO NO GITHUB: https://github.com/nvim-lualine/lualine.nvim
+-> TEMAS: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md 
+
+--]]
 
 return {
   "nvim-lualine/lualine.nvim",

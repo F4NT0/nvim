@@ -1,17 +1,11 @@
 --[[
 
-  _______   _                                
- |__   __| | |                               
-    | | ___| | ___  ___  ___ ___  _ __   ___ 
-    | |/ _ \ |/ _ \/ __|/ __/ _ \| '_ \ / _ \
-    | |  __/ |  __/\__ \ (_| (_) | |_) |  __/
-    |_|\___|_|\___||___/\___\___/| .__/ \___|
-                                 | |         
-                                 |_|         
-]]
+PLUGIN TELESCOPE
 
---- GITHUB: https://github.com/nvim-telescope/telescope.nvim
---- DESCRIPTION: telescope.nvim is a highly extendable fuzzy finder over lists
+-> DESCRIÇÃO: Esse plugin auxilia em busca de arquivos, palavras e outras configurações de UI
+-> PROJETO NO GITHUB: https://github.com/nvim-telescope/telescope.nvim
+
+--]]
 
 return {
 
@@ -20,6 +14,8 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local builtin = require("telescope.builtin")
+
+      -- Configuração de cores
       vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#888A88' })
       vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#888A88' })
       vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#888A88' })
@@ -27,9 +23,9 @@ return {
     end
   },
   {
-    ------------------------------
-    -- TELESCOPE UI FOR ACTIONS --
-    ------------------------------
+    ------------------
+    -- TELESCOPE UI --
+    ------------------
 
     "nvim-telescope/telescope-ui-select.nvim",
 

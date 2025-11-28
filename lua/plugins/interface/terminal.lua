@@ -1,25 +1,18 @@
 --[[
 
-  _______                  _             _ 
- |__   __|                (_)           | |
-    | | ___ _ __ _ __ ___  _ _ __   __ _| |
-    | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
-    | |  __/ |  | | | | | | | | | | (_| | |
-    |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
+PLUGIN TERMINAL
 
-]]
+-> DESCRIÇÃO: Inicia o terminal configurado no Windows para abrir dentro do Neovim
+-> PROJETO DO GITHUB: https://github.com/akinsho/toggleterm.nvim 
+-> COMANDOS DE TECLADO:
+  - Ctrl + T = Abre uma tela flutuante com o terminal
+-> COMANDOS DO NEOVIM:
+  - :ToggleTerm = Abre o Terminal
+  - :ToggleTerm direction=vertical = Abre o terminal na vertical
+  - :ToggleTerm direction=horizontal = Abre o terminal na horizontal
+  - :TermExec cmd="" = Envia um comando para o terminal atual
 
---- GITHUB: https://github.com/akinsho/toggleterm.nvim
---- DESCRIPTION: A neovim plugin to persist and toggle terminals during development.
---- SHORTCUTS:
----   <c-t>: Open/Close terminal
----   <c-g>: Toggle gemini terminal
---- COMMANDS:
----   :ToggleTerm
----   :ToggleTerm direction=float
----   :ToggleTerm direction=vertical
----   :ToggleTerm direction=horizontal
----   :TermExec cmd="..."
+--]]
 
 return {
 
@@ -37,15 +30,5 @@ return {
       shell = 'powershell.exe -NoLogo',
     }
 
-    local Terminal = require("toggleterm.terminal").Terminal
-
-    local gemini_term = Terminal:new({
-          cmd = "gemini",
-          direction = "float",
-          float_ops = {
-            border = "double",
-          },
-          hidden = true,
-      })
   end
 }

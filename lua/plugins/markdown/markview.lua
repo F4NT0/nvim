@@ -1,21 +1,14 @@
 --[[
 
-  __  __            _           _               
- |  \/  |          | |         (_)              
- | \  / | __ _ _ __| | ____   ___  _____      __
- | |\/| |/ _` | '__| |/ /\ \ / / |/ _ \ \ /\ / /
- | |  | | (_| | |  |   <  \ V /| |  __/\ V  V / 
- |_|  |_|\__,_|_|  |_|\_\  \_/ |_|\___| \_/\_/  
-                                                
-]]
+PLUGIN MARKVIEW
 
-
---- GITHUB: https://github.com/OXY2DEV/markview.nvim
---- DESCRIPTION: A markdown previewer for neovim
---- COMMANDS:
----   :Markview Toggle
----   :Markview split
----   :Markview hybrid
+-> DESCRIÇÃO: Visualizador de arquivos Markdown para documentação
+-> PROJETO NO GITHUB: https://github.com/OXY2DEV/markview.nvim 
+-> COMANDOS PARA USAR NO TERMINAL DO NEOVIM:
+  - :Markview Toggle = Liga/Desliga a visualização
+  - :Markview split = Divide a tela em código e na visualização
+  - :Markview hybrid = Vai alterando entre as visualizações
+--]]
 
 return {
   "OXY2DEV/markview.nvim",
@@ -23,7 +16,9 @@ return {
   priority = 49,
   config = function()
     require("markview").setup({
-      filetypes = { "markdown", "mdx" },
+      preview = {
+        filetypes = { "markdown", "mdx" },
+      }
     })
   end,
   preview = {

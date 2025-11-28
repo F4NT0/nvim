@@ -1,27 +1,19 @@
 --[[
 
-   _____                                     _   
-  / ____|                                   | |  
- | |     ___  _ __ ___  _ __ ___   ___ _ __ | |_ 
- | |    / _ \| '_ ` _ \| '_ ` _ \ / _ \ '_ \| __|
- | |___| (_) | | | | | | | | | | |  __/ | | | |_ 
-  \_____\___/|_| |_| |_|_| |_| |_|\___|_| |_|\__|
+PLUGIN COMMENT
 
-]]
+-> DESCRIÇÃO: Ajuda a comentar as linhas em um projeto
+-> PROJETO NO GITHUB: https://github.com/numToStr/Comment.nvim
+-> COMANDOS DE TECLADO:
+  - G + C + C = Comenta/Descomenta a linha atual.
+  - G + B + C = Comenta/Descomenta o bloco atual de código.
+  - Numero + G + C + C = Comenta a linha do numero passado.
+  - Numero + G + B + C = Comenta o bloco de código da linha passada.
+  - G + C + O = Insere um comentário na próxima linha e entra no modo INSERT.
+  - G + C + Shift + O = Insere um comentário na linha anterior e entra no modo INSERT.
+  - G + C + Shift + A = Insere um comentário no final do arquivo e entra no modo INSERT.
 
-
---- GITHUB: https://github.com/numToStr/Comment.nvim
---- DESCRIPTION: This plugins help to improve comment lines in a project
----
---- COMMANDS:
----  NORMAL MODE:
----     -> gcc = toggle the current line
----     -> gbc = toggle the current block
----     -> number + gcc = toggle the number of lines
----     -> number + gbc = toggle the number of blocks
----     -> gco = Insert the comment of the next lines and enter INSERT mode
----     -> gcO = Insert the comment of the previous lines and enter INSERT mode
----     -> gcA = Insert the comment in the end of the current line and enter INSERT mode
+--]]
 
 return {
   "numToStr/Comment.nvim",

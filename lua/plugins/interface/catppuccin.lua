@@ -1,20 +1,17 @@
 --[[
-   ____      _                              _       
-  / ___|__ _| |_ _ __  _ __  _   _  ___ ___(_)_ __  
- | |   / _` | __| '_ \| '_ \| | | |/ __/ __| | '_ \ 
- | |__| (_| | |_| |_) | |_) | |_| | (_| (__| | | | |
-  \____\__,_|\__| .__/| .__/ \__,_|\___\___|_|_| |_|
-                |_|   |_|                           
 
-]]
+PLUGIN CATPPUCCIN 
 
---- GITHUB: https://github.com/catppuccin/catppuccin
---- DESCRIPTION: Collection of themes for Neovim
+-> DESCRIÇÃO: Este plugin é o tema do nosso Neovim.
+-> PROJETO NO GITHUB: https://github.com/catppuccin/catppuccin 
+-> COR DE FUNDO PERSONALIZADA: #101329
+
+--]]
 
 return {
 
   -------------------
-  --- INSTALLATION --
+  --- INSTALAÇÃO --
   -------------------
 
   "catppuccin/nvim",
@@ -23,14 +20,14 @@ return {
   priority = 1000,
 
   --------------------
-  --- CONFIGURATION --
+  --- CONFIGURAÇÃO --
   --------------------
 
   config = function()
     require("catppuccin").setup({
       flavour = "mocha",
       background = { dark = "mocha" },
-      color_overrides = { mocha = { base = "#0d1117" } },
+      color_overrides = { mocha = { base = "#101329" } },
       no_italic = true,
       no_bold = true
     })

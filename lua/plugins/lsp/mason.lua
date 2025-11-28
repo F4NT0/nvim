@@ -1,25 +1,22 @@
 --[[
-  __  __                       
- |  \/  |                      
- | \  / | __ _ ___  ___  _ __  
- | |\/| |/ _` / __|/ _ \| '_ \ 
- | |  | | (_| \__ \ (_) | | | |
- |_|  |_|\__,_|___/\___/|_| |_|
-                               
-]]
 
---- GITHUB: https://github.com/williamboman/mason.nvim FOR MASON
---- GITHUB: https://github.com/williamboman/mason-lspconfig.nvim FOR MASON LSP CONFIGURATION
---- GITHUB: https://github.com/williamboman/
---- DESCRIPTION: This is the LSP manager to install language configurations
---- WARNING: For C# need to install the tool: dotnet tool install --global csharp-ls.
---- TODO: Explain how to make the neovim install the dependencies to run this project in another windows.
+PLUGIN MASON
+
+-> DESCRIÇÃO: Este projeto é um gerenciador de LSP para instalar configurações de linguagens
+-> PROJETOS NO GITHUB: 
+  - https://github.com/williamboman/mason.nvim
+  - https://github.com/williamboman/mason-lspconfig.nvim
+  - https://github.com/williamboman/
+-> ATENÇÃO:
+  - Precisa ter instalado o .NET no seu computador.
+  - Adicione a seguinte ferramenta no seu terminal: dotnet tool install --global csharp-ls
+]]
 
 return {
 
-  ------------------------- 
-  -- MASON CONFIGURATION --
-  -------------------------
+  ----------- 
+  -- MASON --
+  -----------
 
   {
     "williamboman/mason.nvim",
@@ -28,11 +25,12 @@ return {
     end
   },
 
-  ---------------------------------
-  -- MASON LSPCONFIG CONFIGURATION
-  ---------------------------------
-  --- The next part of configuration is in nvim-lspconfig.lua
-  --- Add the configurations from each language installed here
+  ---------------------
+  -- MASON LSPCONFIG --
+  ---------------------
+
+  --- Próxima parte da configuração se encontra em nvim-lspconfig.lua.
+  --- Adicione a configuração de cada linguagem aqui para ele instalar automaticamente.
 
   {
     "williamboman/mason-lspconfig.nvim",
@@ -41,8 +39,6 @@ return {
         ensure_installed = {
           "lua_ls",
           "omnisharp",
-          "gopls",
-          "jdtls",
           "yamlls"
         },
         automatic_enable = true,

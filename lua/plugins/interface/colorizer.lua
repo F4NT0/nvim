@@ -1,16 +1,12 @@
 --[[
-            _            _              
-           | |          (_)             
-   ___ ___ | | ___  _ __ _ _______ _ __ 
-  / __/ _ \| |/ _ \| '__| |_  / _ \ '__|
- | (_| (_) | | (_) | |  | |/ /  __/ |   
-  \___\___/|_|\___/|_|  |_/___\___|_|   
 
-]]
+PLUGIN COLORIZER
 
+-> DESCRIÇÃO: Apresenta as cores pelo nome e pelo valor hexadecimal
+-> EXEMPLO: Deve mostrar uma cor abaixo do valor #ffff
+-> PROJETO NO GITHUB: https://github.com/NvChad/nvim-colorizer
 
---- GITHUB: https://github.com/NvChad/nvim-colorizer
---- DESCRIPTION: Show the colors of the hexadecimals in the file
+--]]
 
 return {
   {

@@ -1,16 +1,12 @@
 --[[
 
-  __  __                         _ 
- |  \/  |                       | |
- | \  / | __ _ _ __  _   _  __ _| |
- | |\/| |/ _` | '_ \| | | |/ _` | |
- | |  | | (_| | | | | |_| | (_| | |
- |_|  |_|\__,_|_| |_|\__,_|\__,_|_|
-                                   
-                                   
-]]
+MANUAL DE COMANDOS DO MEU NEOVIM CUSTOMIZADO
 
---- DESCRIPTION: Float windows with the markdown manual from my Neovim
+-> DESCRIÇÃO: Esta é a minha configuração de quando usa o comando :Khelp ele abre uma tela flutuante com os comandos.
+-> IMPORTANTE: Necessita existir o arquivo Manual.md nesse projeto para mostrar
+-> IMPORTANTE 2: A localização do seu Neovim precisa estar em C:\Users\SeuUser\AppData\Local\nvim
+
+--]]
 
 return {
   {

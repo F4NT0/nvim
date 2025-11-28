@@ -1,22 +1,20 @@
 --[[
 
-   _____ _ _       _                 
-  / ____(_) |     (_)                
- | |  __ _| |_ ___ _  __ _ _ __  ___ 
- | | |_ | | __/ __| |/ _` | '_ \/ __|
- | |__| | | |_\__ \ | (_| | | | \__ \
-  \_____|_|\__|___/_|\__, |_| |_|___/
-                      __/ |          
-                     |___/           
-]]
+PLUGIN GITSIGNS
 
---- GITHUB: https://github.com/lewis6991/gitsigns.nvim
---- DESCRIPTION: Plugin to show git changed line in the left of the file
---- COMMANDS:
----   - SPACE + H + S = Stage changed
----   - SPACE + H + R = Reset changes
----
+-> DESCRIÇÃO: Serve para mostrar uma linha a esquerda para mostrar as modificações no arquivo.
+-> PROJETO NO GITHUB: https://github.com/lewis6991/gitsigns.nvim
+-> COMANDOS DO TECLADO:
+  - ESPAÇO + H + S = Adiciona/Remove as modificações para fazer commit
+  - ESPAÇO + H + R = Remove modificações do que é para fazer commit
+-> COMANDOS DE TERMINAL NO NEOVIM:
+  - :Gitsigns toggle_signs = Liga/Desliga o status da linha no arquivo 
+  - :Gitsigns toggle_numhl =  
+  - :Gitsigns toggle_linehl = 
+  - :Gitsigns toggle_word_diff = 
+  - :Gitsigns toggle_current_line_blame =
 
+--]]
 
 return {
   "lewis6991/gitsigns.nvim",
@@ -42,16 +40,16 @@ return {
         untracked = { text = "┆" },
       },
       signs_staged_enable = true,
-      signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-      numhl = false,  -- Toggle with `:Gitsigns toggle_numhl`
-      linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+      signcolumn = true,
+      numhl = false,
+      linehl = false,
+      word_diff = false,
       watch_gitdir = {
         follow_files = true,
       },
       auto_attach = true,
       attach_to_untracked = false,
-      current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      current_line_blame = false,
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
@@ -63,10 +61,9 @@ return {
       current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
       sign_priority = 6,
       update_debounce = 100,
-      status_formatter = nil, -- Use default
-      max_file_length = 40000, -- Disable if file is longer than this (in lines)
+      status_formatter = nil,
+      max_file_length = 40000,
       preview_config = {
-        -- Options passed to nvim_open_win
         style = "minimal",
         relative = "cursor",
         row = 0,

@@ -1,3 +1,14 @@
+--[[
+
+PLUGIN DEVICONS
+
+-> DESCRIÇÃO: Adiciona os icones dos tipos de arquivos no Neovim em geral.
+-> OBSERVAÇÃO: Coloquei alguns icones especiais personalizados.
+-> ATENÇÃO: Precisa ter a fonte do Jetbrains Nerd Font Thin para funcionar.
+
+--]]
+
+
 return {
   "nvim-tree/nvim-web-devicons",
       config = function()

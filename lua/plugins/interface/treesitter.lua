@@ -1,46 +1,43 @@
 --[[
 
-  _______                 _ _   _            
- |__   __|               (_) | | |           
-    | |_ __ ___  ___  ___ _| |_| |_ ___ _ __ 
-    | | '__/ _ \/ _ \/ __| | __| __/ _ \ '__|
-    | | | |  __/  __/\__ \ | |_| ||  __/ |   
-    |_|_|  \___|\___||___/_|\__|\__\___|_|   
-                                             
-]]
+PLUGIN TREESITTER
 
---- GITHUB: https://github.com/nvim-treesitter/nvim-treesitter
---- DESCRIPTION: Highlight and indent code for different languages
---- WARNING: This plugin need in Windows 11 the MSYS2 installed with gcc
---- LINK TO INSTALL MSYS2: https://www.msys2.org/
---- ATTENTION: Don't forget to add into the PATH in Environment Variables the location of msys2 and gcc
+-> DESCRIÇÃO: Mostra cores e identa o código para diferentes linguagens
+-> PROJETO NO GITHUB: https://github.com/nvim-treesitter/nvim-treesitter
+-> ATENÇÃO: Precisa instalar o MSYS2 instalado com GCC
+  - LINK: https://www.msys2.org/
+  - Não esqueça de adicionar o PATH nas variáveis de ambiente
+-> ATENÇÃO 2: Precisa instalar o tree-sitter-cli primeiro
+  - npm install -g tree-sitter-cli
+
+--]]
 
 return {
 
-  ------------------ 
-  -- INSTALLATION --
-  ------------------
+  ---------------- 
+  -- INSTALAÇÃO --
+  ----------------
 
   "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
 
-  -------------------
-  -- CONFIGURATION --
-  -------------------
+  ------------------
+  -- CONFIGURAÇÃO --
+  ------------------
 
   config = function()
     local tree = require("nvim-treesitter.configs")
     tree.setup({
       ensure_installed = {
-        "lua", 
-        "c_sharp", 
-        "java", 
-        "powershell", 
-        "toml", 
-        "sql", 
-        "json", 
-        "yaml", 
+        "lua",
+        "c_sharp",
+        "java",
+        "powershell",
+        "toml",
+        "sql",
+        "json",
+        "yaml",
         "xml",
-        "latex", -- Install first the npm install -g tree-sitter-cli
+        "latex",
         "markdown",
         "markdown_inline"
       },
