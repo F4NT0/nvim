@@ -26,11 +26,9 @@ return {
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
-        
         -- Formattings
         null_ls.builtins.formatting.stylua, -- Lua linter
         null_ls.builtins.formatting.prettier, -- To other languages
-        
         -- Linters
         -- null_ls.builtins.diagnostics.dotnet_diagnostic, -- C#
       }

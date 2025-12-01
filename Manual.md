@@ -1,30 +1,90 @@
-# Keymaps && Infos
+# Manual de comandos do Neovim
 
-## Plugin Keymaps
+## Atalhos do Teclado
 
+### Telas disponíveis
 
-### Open basic plugins
-
-| Keybinding | Action | Plugin |
+| Comando | Ação | Plugin |
 |---|---|---|
-| `Ctrl + L` | Open Lazy Git | Lazygit.nvim |
-| `Ctrl + F` | Open File System in a Left Window | Neo-tree.nvim |
-| `Ctrl + X` | Close Neotree when inactive | Neo-tree.nvim |
-| `Ctrl + Q` | Open File Search in Telescope | Telescope.nvim |
-| `Ctrl + S` | Open Word Search in Telescope | Telescope.nvim |
-| `Ctrl + T` | Open a terminal in a float window | Toggleterm.nvim |
-| `Ctrl + G` | Open Gemini CLI from Terminal | Toggleterm.nvim |
+| `Ctrl + L` | Abre o LazyGit | Lazygit.nvim |
+| `Ctrl + F` | Abre o gerenciador de arquivos a esquerda | Neo-tree.nvim |
+| `Ctrl + X` | Fecha o gerenciador de arquivos quando inativo | Neo-tree.nvim |
+| `Ctrl + Q` | Abre uma tela de busca de arquivos  | Telescope.nvim |
+| `Ctrl + S` | Abre uma tela de busca por palavras | Telescope.nvim |
+| `Ctrl + T` | Abre um terminal em uma janela flutuante| Toggleterm.nvim |
 
+### Controle das abas
 
-### Code commands
-
-| Keybinding | Action | Plugin |
+| Comando | Ação | Plugin |
 |---|---|---|
-| `Space + D + T` | Debug Toggle Breakpoint | nvim-dap |
-| `Space + D + S` | Debug Start | nvim-dap |
-| `Space + D + C` | Debug Close | nvim-dap |
-| `Space + C + H` | Code Hover Documentation | nvim-lspconfig |
-| `Space + C + D` | Code Go to Definition | nvim-lspconfig |
+| `Alt + ,` | Volta para a aba anterior        | barbar.nvim |
+| `Alt + .` | Vai para a próxima aba           | barbar.nvim |
+| `Alt + <` | Reordena as abas para a esquerda | barbar.nvim |
+| `Alt + >` | Reordena as abas para a direita  | barbar.nvim |
+| `Alt + 1` | Move para a aba 1                | barbar.nvim |
+| `Alt + 2` | Move para a aba 2                | barbar.nvim |
+| `Alt + 3` | Move para a aba 3                | barbar.nvim |
+| `Alt + 4` | Move para a aba 4                | barbar.nvim |
+| `Alt + 5` | Move para a aba 5                | barbar.nvim |
+| `Alt + 6` | Move para a aba 6                | barbar.nvim |
+| `Alt + P` | Marque a aba atual               | barbar.nvim |
+| `Alt + C` | Fecha a aba atual                | barbar.nvim |
+
+### Para auxiliar adicionar simbolos em palavras
+
+| Comando | Ação | Plugin
+|---|---|---|
+| `Y + S + I + W + )` | Coloca parentes entre a palavra   | nvim-surround |
+| `Y + S + $ + "` | Coloca no final do cursor aspas dupla | nvim-surround |
+| `D + S + ]` | Deleta os [] de uma palavra               | nvim-surround |
+| `D + S + T` | Deleta a tag html em volta de uma palavra              | nvim-surround |
+| `C + S + ' + "` | Troca aspas simples por aspas duplas de uma palavra | nvim-surround |
+| `C + S + T + H + 1 + Enter` | Altera a tag de html para h1 | nvim-surround |
+| `D + S + F` | Deleta a chamada de uma função | nvim-surround |
+
+
+### Para comentar linhas de código
+
+| Comando | Ação | Plugin
+|---|---|---|
+| `G + C + C` | Comenta/Descomenta linha atual | Comment.nvim |
+| `G + B + C` | Comenta/Descomenta bloco de código | Comment.nvim |
+| `G + C + O` | Insere um comentário na próxima linha | Comment.nvim |
+| `G + C + Shift + O` | Insere um comentário na linha anterior | Comment.nvim |
+| `G + C + Shift + A` | Insere um comentátio no fim da linha atual | Comment.nvim |
+| `Ctrl + K` | Sugestão anterior | nvim-cmp |
+| `Ctrl + J` | Próxima sugestão | nvim-cmp |
+| `Ctrl + B` | Scroll docs below | nvim-cmp |
+| `Ctrl + Space` | Show completion suggestions | nvim-cmp |
+| `Ctrl + F` | Scroll docs above | nvim-cmp |
+| `Ctrl + E` | Close completion window | nvim-cmp |
+| `Enter` | Confirm Selection | nvim-cmp |
+
+### Gerenciar tarefas para se fazer no código
+
+| Comando | Ação | Plugin
+|---|---|---|
+| `Space + T + D` | Abre a tela onde mostra todas as tarefas do projeto | todo-comments.nvim
+
+### Lidando com modificações no código
+
+| Comando | Ação | Plugin
+|---|---|---|
+|`Space + H + S`| Adiciona/Remove as modificações do arquivo | gitsigns.nvim
+|`Space + H + R`| Desfaz as modificações salvas | gitsigns.nvim
+|`Space + H + Shift + S` | Salve todas as modificações do arquivo | gitsigns.nvim
+|`Space + H + Shift + R` | Desfaz todas as modificações salvas | gitsigns.nvim
+|`Space + H + P` | Verifique o que tem salvo | gitsigns.nvim
+
+### Comandos para gerenciar código (TBD)
+
+| Comando | Ação | Plugin |
+|---|---|---|
+| `Space + D + T` | Coloque um breakpoint na linha atual | nvim-dap |
+| `Space + D + S` | Iniciar Debug | nvim-dap |
+| `Space + D + C` | Finalizar Debug | nvim-dap |
+| `Space + C + H` | Verificar documentação do código | nvim-lspconfig |
+| `Space + C + D` | Vai até a definição do código | nvim-lspconfig |
 | `Space + C + A` | Code Actions to fix the issue | nvim-lspconfig |
 | `Space + C + R` | Code Go to References | nvim-lspconfig |
 | `Space + C + I` | Code Go to Implementations | nvim-lspconfig |
@@ -32,72 +92,6 @@
 | `Space + C + Shift + D` | Code Go to Declaration | nvim-lspconfig |
 | `Space + S + D` | Show Diagnostic of the Warning or Error | nvim-lspconfig |
 | `Space + C + F` | Format the code into the specific language | nvim-lspconfig |
-
-
-### Tab commands
-
-| Keybinding | Action | Plugin |
-|---|---|---|
-| `Alt + ,` | Change tab to the previous one | barbar.nvim |
-| `Alt + .` | Change tab to the next one | barbar.nvim |
-| `Alt + <` | Reorder tabs to the left | barbar.nvim |
-| `Alt + >` | Reorder tabs to the right | barbar.nvim |
-| `Alt + 1` | Move to tab 1 | barbar.nvim |
-| `Alt + 2` | Move to tab 2 | barbar.nvim |
-| `Alt + 3` | Move to tab 3 | barbar.nvim |
-| `Alt + 4` | Move to tab 4 | barbar.nvim |
-| `Alt + 5` | Move to tab 5 | barbar.nvim |
-| `Alt + 6` | Move to tab 6 | barbar.nvim |
-| `Alt + P` | Pin current tab | barbar.nvim |
-| `Alt + C` | Close current tab | barbar.nvim |
-
-
-### Comands to surround words
-
-| Keybinding | Action | Plugin
-|---|---|---|
-| `Y + S + I + W + )` | Surround word with parentheses | nvim-surround |
-| `Y + S + $ + "` | Surround from cursor to end of line with double quotes | nvim-surround |
-| `D + S + ]` | Delete surrounding brackets | nvim-surround |
-| `D + S + T` | Delete surrounding HTML tags | nvim-surround |
-| `C + S + ' + "` | Change surrounding single quotes to double quotes | nvim-surround |
-| `C + S + T + H + 1 + Enter` | Change surrounding tag to h1 | nvim-surround |
-| `D + S + F` | Delete surrounding function call | nvim-surround |
-
-
-### Comands to comment lines
-
-| Keybinding | Action | Plugin
-|---|---|---|
-| `G + C + C` | Comment the current line | Comment.nvim |
-| `G + B + C` | Comment the current block | Comment.nvim |
-| `G + C + O` | Insert comment next line | Comment.nvim |
-| `G + C + Shift + O` | Insert comment previous line | Comment.nvim |
-| `G + C + Shift + A` | Insert the comment in the end of current line | Comment.nvim |
-| `Ctrl + K` | Previous Suggestions | nvim-cmp |
-| `Ctrl + J` | Next Suggestions | nvim-cmp |
-| `Ctrl + B` | Scroll docs below | nvim-cmp |
-| `Ctrl + Space` | Show completion suggestions | nvim-cmp |
-| `Ctrl + F` | Scroll docs above | nvim-cmp |
-| `Ctrl + E` | Close completion window | nvim-cmp |
-| `Enter` | Confirm Selection | nvim-cmp |
-
-### TODO Comments commands
-
-| Keybinding | Action | Plugin
-|---|---|---|
-| 
-
-### Commands to deal with gitsigns
-
-| Keybinding | Action | Plugin
-|---|---|---|
-|`Space + H + S`| Stage the actual hunk into the index (like git add)|gitsigns
-|`Space + H + R`| Undo the actual hunk alterations|gitsigns
-|`Space + H + Shift + S` | Stage All changes from the file|gitsigns
-|`Space + H + Shift + R` | Undo All changes from the file|gitsigns
-|`Space + H + P` | Preview the hunk|gitsigns
-
 
 ## Basic Neovim Commands
 

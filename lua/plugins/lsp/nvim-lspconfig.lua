@@ -11,23 +11,26 @@ PLUGIN LSPCONFIG
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    local lspconfig = require("lspconfig")
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- Ícones personalizados
+    vim.fn.sign_define("DiagnosticSignError", { text = "✘", texthl = "DiagnosticSignError" })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = "▲", texthl = "DiagnosticSignWarn" })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+    vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+
 
     -- LUA
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
     })
     -- C#
-    lspconfig.omnisharp.setup({
+    vim.lsp.config("roslyn", {
       capabilities = capabilities,
-      enable_import_completion = true,
-      organize_imports_on_format = true,
-      enable_roslyn_analyzers = true,
     })
     -- YAML
-    lspconfig.yamlls.setup({
+    vim.lsp.config("yamlls", {
       capabilities = capabilities,
     })
   end,

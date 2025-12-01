@@ -21,7 +21,19 @@ return {
   {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup()
+      require("mason").setup({
+        registries = {
+          -- Esses registros são para instalar o roslyn no Neovim (para C#)
+          "github:mason-org/mason-registry",
+          "github:Crashdummyy/mason-registry",
+        },
+        ensure_installed = {
+          "lua-language-server",
+          "csharpier",
+          "prettier",
+          "roslyn",
+        }
+      })
     end
   },
 
@@ -38,8 +50,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "omnisharp",
-          "yamlls"
+          "yamlls",
         },
         automatic_enable = true,
       })
