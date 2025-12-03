@@ -2,9 +2,9 @@
 
 PLUGIN NVIM-SURROUND
 
-DESCRIÇÃO: Plugin para ajudar a colocar "" e () no código
-PROJETO NO GITHUB: https://github.com/kylechui/nvim-surround
-COMANDOS DE TECLADO:
+-> DESCRIÇÃO: Plugin para ajudar a colocar "" e () no código
+-> PROJETO NO GITHUB: https://github.com/kylechui/nvim-surround
+-> COMANDOS DE TECLADO:
   - Y + S + I + W + ) = Coloca () na palavra atual
   - Y + S + $ + " = Coloca "" no próximo texto depois do cursor
   - D + S + ] = Deleta o [] em volta da palavra
@@ -12,7 +12,7 @@ COMANDOS DE TECLADO:
   - C + S + ' + " = Altera de '' para "" na palavra atual
   - C + S + T + H + 1 + Enter = Altera o valor da tag da palavra atual
   - D + S + F = Remove função e deixa somente a palavra do atributo
-EXEMPLOS:
+-> EXEMPLOS:
     Palavra antiga |  Comando   |   Como fica
   -----------------|------------|-----------------
     palavra        |   ysiw)    |    (palavra)

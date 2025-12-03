@@ -4,11 +4,13 @@
 
 ---
 
-🡢 This is my personal Neovim configuration with a set of plugins to enhance the development experience.
+🡢  Bem vindo a minha IDE Neovim customizada para desenvolvimento em .NET com C#.
 
-🡢 This Project is for **WINDOWS 11** only, all configurations are made into this Operational System.
+🡢  Este projeto foi desenvolvido para rodar no **Windows 11** mas pode ser usado em outros sistemas operacionais.
 
-🡢 To know the available keymaps use the command `:Khelp` into the command mode!
+🡢  Todo esse projeto está em **PT-BR** somente para auxiliar pessoas que nunca mexeram com programação, onde dou aulas. 
+
+🡢  Para saber todos os comandos de teclado disponíveis utilize o comando `:Khelp` dentro do Neovim.
 
 ## Directory Organization
 
@@ -21,7 +23,7 @@
 |`init.lua`|The main entry point for the Neovim configuration.
 |`lua/`|Contains all the Lua configuration files.
 |`plugins.lua`|Loads all the plugins from the `lua/plugins` directory.
-|`config/`|Contains the configuration files for the plugins.
+|`config/`|Contains the configuration files for the plugins. 
 |`autocmds.lua`|  Contains the autocommands.
 |`jdtls.lua`| Contains the configuration for the Java LSP.
 |`keymaps.lua`|Contains all the keymaps.

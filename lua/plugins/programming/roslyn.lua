@@ -2,9 +2,9 @@
 
 PLUGIN ROSLYN
 
-DESCRIÇÃO: Esse Plugin é para programar em C#
-PROJETO NO GITHUB: https://github.com/seblyng/roslyn.nvim
-ATENÇÃO:
+-> DESCRIÇÃO: Esse Plugin é para programar em C#
+-> PROJETO NO GITHUB: https://github.com/seblyng/roslyn.nvim
+-> ATENÇÃO:
   - Adicione no arquivo de Plugin do Mason no ensure_installed o nome "roslyn" e "rzln"
   - Adicione no lsp-config a seguinte linha: vim.lsp.config("roslyn", {})
   - Deve ser instalado o roslyn no Plugin Mason (:MasonInstall roslyn)

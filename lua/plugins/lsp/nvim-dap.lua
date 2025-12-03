@@ -35,5 +35,27 @@ return {
     dap.listeners.before.launch.dapui_config = function()
       dapui.open()
     end
+
+    -- Adaptador para .NET
+    -- Instale o netcoredbg no seu computador e verifique com netcoredbg --version
+    dap.adapters.coreclr = {
+      type = 'executable',
+      command = 'C:\\Tools\\netcoredbg\\netcoredbg.exe', -- caminho para o netcoredbg
+      args = { '--interpreter=vscode' }
+    }
+
+    -- Configurando projeto C#
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "Iniciando Projeto .NET",
+        request = "launch",
+        program = function()
+            return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '\\bin\\Debug\\net10.0\\', 'file')
+        end,
+        cwd = vim.fn.getcwd(),
+        console = 'integratedTerminal'
+      }
+    }
   end
 }

@@ -13,6 +13,19 @@
 | `Ctrl + S` | Abre uma tela de busca por palavras | Telescope.nvim |
 | `Ctrl + T` | Abre um terminal em uma janela flutuante| Toggleterm.nvim |
 
+---
+
+### Controle do Terminal Interno
+
+| Comando | Ação | Plugin |
+|---|---|---|
+| `Ctrl + T` | Abre um terminal padrão flutuante | Toggleterm.nvim |
+| `Space + C + T` | Fecha o terminal padrão | Toggleterm.nvim |
+| `Space + D` | Compila o arquivo .cs atual no terminal (.NET 1O) | Toggleterm.nvim |
+| `Space + X` | Fecha o terminal do .NET (.NET 10) | Toggleterm.nvim |
+
+---
+
 ### Controle das abas
 
 | Comando | Ação | Plugin |
@@ -30,6 +43,8 @@
 | `Alt + P` | Marque a aba atual               | barbar.nvim |
 | `Alt + C` | Fecha a aba atual                | barbar.nvim |
 
+---
+
 ### Para auxiliar adicionar simbolos em palavras
 
 | Comando | Ação | Plugin
@@ -42,6 +57,7 @@
 | `C + S + T + H + 1 + Enter` | Altera a tag de html para h1 | nvim-surround |
 | `D + S + F` | Deleta a chamada de uma função | nvim-surround |
 
+---
 
 ### Para comentar linhas de código
 
@@ -60,11 +76,15 @@
 | `Ctrl + E` | Close completion window | nvim-cmp |
 | `Enter` | Confirm Selection | nvim-cmp |
 
+---
+
 ### Gerenciar tarefas para se fazer no código
 
 | Comando | Ação | Plugin
 |---|---|---|
 | `Space + T + D` | Abre a tela onde mostra todas as tarefas do projeto | todo-comments.nvim
+
+---
 
 ### Lidando com modificações no código
 
@@ -75,6 +95,8 @@
 |`Space + H + Shift + S` | Salve todas as modificações do arquivo | gitsigns.nvim
 |`Space + H + Shift + R` | Desfaz todas as modificações salvas | gitsigns.nvim
 |`Space + H + P` | Verifique o que tem salvo | gitsigns.nvim
+
+---
 
 ### Comandos para gerenciar código (TBD)
 
@@ -92,6 +114,8 @@
 | `Space + C + Shift + D` | Code Go to Declaration | nvim-lspconfig |
 | `Space + S + D` | Show Diagnostic of the Warning or Error | nvim-lspconfig |
 | `Space + C + F` | Format the code into the specific language | nvim-lspconfig |
+
+---
 
 ## Basic Neovim Commands
 
