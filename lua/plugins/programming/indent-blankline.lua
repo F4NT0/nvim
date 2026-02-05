@@ -11,8 +11,8 @@ PLUGIN INDENT-BLANKLINE
 return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
+    --@module "ibl"
+    --@type ibl.config
     opts = {
       exclude = {
         filetypes = {

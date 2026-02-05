@@ -27,6 +27,13 @@ return {
           "github:mason-org/mason-registry",
           "github:Crashdummyy/mason-registry",
         },
+        ui = {
+          icons = {
+           package_installed = "",
+           package_pending = "",
+           package_uninstalled = "",  
+          },
+        },
         ensure_installed = {
           "lua-language-server",
           "csharpier",

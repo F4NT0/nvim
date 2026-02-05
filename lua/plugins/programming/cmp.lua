@@ -26,7 +26,6 @@ PLUGIN CMP
 
 --]]
 
-
 return {
   {
     "L3MON4D3/LuaSnip",
@@ -58,6 +57,14 @@ return {
             expand = function(args)
                 luasnip.lsp_expand(args.body)
             end
+          },
+          window = {
+            completion = cmp.config.window.bordered({
+              border = "rounded",
+            }),
+            documentation = cmp.config.window.bordered({
+              border = "rounded",
+            }),
           },
           mapping = cmp.mapping.preset.insert({
               ["<C-k>"] = cmp.mapping.select_prev_item(),
