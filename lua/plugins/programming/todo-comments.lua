@@ -1,37 +1,41 @@
---[[
+--[[ ============================================================================
+PLUGIN: folke/todo-comments.nvim
+============================================================================
+Detects, highlights and lists project-wide task comments. Requires `ripgrep`
+on PATH for the search-based commands.
 
-PLUGIN TODO COMMENTS
+Recognised keywords (capitalised, followed by a colon):
+  FIX:    something is broken
+  TODO:   work to do
+  HACK:   short-term workaround
+  WARN:   take care here
+  PERF:   performance note
+  NOTE:   informational comment
 
--> DESCRIÇÃO: Organização de tarefas para fazer
--> PROJETO NO GITHUB: https://github.com/folke/todo-comments.nvim
--> OBSERVAÇÃO: Deve colocar o nome e depois : para colocar a mensagem
-  - FIX Essa mensagem significa que precisa arrumar um problema
-  - TODO Essa mensagem significa que precisa fazer uma melhoria
-  - WARN Essa mensagem significa que precisa ter atenção em detalhes
-  - PERF Essa mensagem é de performance
-  - NOTE Essa mensagem é para anotação
+Commands:
+  :TodoTelescope    list every TODO in the project (mapped to <leader>td)
+  :TodoQuickFix     open quickfix with every TODO
+  :TodoLocList      open location list
 
--> COMANDOS:
-  - :TodoTelescope = Abre uma lista de todos e outros tipos no código  
--> ATENÇÃO:
-  - Deve ser instalado o ripgrep para funcionar:
-  - Set-ExecutionPolicy RemoteSigned -Scope CurrentUser Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-  - scoop install ripgrep
---]]
+Repo: https://github.com/folke/todo-comments.nvim
+Docs: Documentations/programming/todo-comments.md
+============================================================================ ]]
 
 return {
   "folke/todo-comments.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  cmd   = { "TodoTelescope", "TodoQuickFix", "TodoLocList" },
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
-    signs = true,
+    signs    = true,
     keywords = {
-      FIX =  { icon = "X", color = "error" },
-      TODO = { icon = "", color = "info" },
-      HACK = { icon = "", color = "warning" },
-      WARN = { icon = "", color = "warning" },
-      PERF = { icon = "", color = "default" },
-      NOTE = { icon = "", color = "hint" },
-    }
-  }
+      FIX  = { icon = "", color = "error",   alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+      TODO = { icon = "", color = "info"    },
+      HACK = { icon = "", color = "warning" },
+      WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
+      PERF = { icon = "",  color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = "", color = "hint",   alt = { "INFO" } },
+      TEST = { icon = "⏲", color = "test",   alt = { "TESTING", "PASSED", "FAILED" } },
+    },
+  },
 }
-

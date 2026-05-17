@@ -1,27 +1,29 @@
---[[
+--[[ ============================================================================
+PLUGIN: OXY2DEV/markview.nvim
+============================================================================
+Inline preview of markdown documents: headings, lists, callouts, tables,
+code blocks and links are rendered with syntax highlighting and icons.
 
-PLUGIN MARKVIEW
+Commands:
+  :Markview            toggle the preview
+  :Markview enable     turn rendering on
+  :Markview disable    turn rendering off
+  :Markview hybridMode toggle hybrid (raw + rendered) mode
 
--> DESCRIÇÃO: Visualizador de arquivos Markdown para documentação
--> PROJETO NO GITHUB: https://github.com/OXY2DEV/markview.nvim 
--> COMANDOS PARA USAR NO TERMINAL DO NEOVIM:
-  - :Markview Toggle = Liga/Desliga a visualização
-  - :Markview split = Divide a tela em código e na visualização
-  - :Markview hybrid = Vai alterando entre as visualizações
---]]
+Repo: https://github.com/OXY2DEV/markview.nvim
+Docs: Documentations/markdown/markview.md
+============================================================================ ]]
 
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false,
+  ft       = { "markdown", "mdx" },
   priority = 49,
-  config = function()
-    require("markview").setup({
-      preview = {
-        filetypes = { "markdown", "mdx" },
-      }
-    })
-  end,
-  preview = {
-    icon_provider = "devicons"
-  }
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = {
+    preview = {
+      filetypes  = { "markdown", "mdx" },
+      ignore_buftypes = { "nofile" },
+      icon_provider = "devicons",
+    },
+  },
 }

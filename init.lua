@@ -1,55 +1,33 @@
---[[
-CONFIGURAÇÕES BÁSICAS DO NEOVIM
+--[[ ============================================================================
+NEOVIM ENTRY POINT
+============================================================================
+This is the main entry point of the configuration. It is intentionally tiny:
+all heavy lifting is delegated to small modules under `lua/config/`.
 
-DESCRIÇÃO: Este arquivo serve para configurar os plugins básicos e configurações do Neovim.
---]]
+Load order matters:
+  1. options        -> editor settings (loaded first, sync, no plugins)
+  2. lazy           -> plugin manager bootstrap (loads plugin specs)
+  3. keymaps        -> global keymaps that don't depend on a specific plugin
+  4. autocmds       -> autocommands (filetypes, highlights, perf)
 
+Performance notes:
+  - vim.loader.enable() turns on the byte-code module cache (Neovim 0.9+).
+  - Unused providers are disabled (perl, ruby, python3, node) so Neovim does
+    not waste time probing for them at startup.
+  - Most plugins are loaded lazily (event/cmd/ft/keys) inside their spec files.
+============================================================================ ]]
 
--- ESTRUTURA DO EDITOR DE TEXTO
-vim.cmd("set expandtab") -- converte os tabs em espaços vazios
-vim.cmd("set tabstop=2") -- Numero de colunas em cada tab
-vim.cmd("set softtabstop=2") -- Multiplos espaços são tabs
-vim.cmd("set shiftwidth=2") -- Espaço quando é feito a identação automática
-vim.cmd("set number") -- Mostra o numero das linhas
-vim.cmd("set autoindent") -- Identa uma nova linha
-vim.cmd("syntax on") -- Mostra as cores dos textos
-vim.cmd("set clipboard=unnamedplus") -- Podemos colar com Ctrl + C e Ctrl + V
-vim.cmd("set cursorline") -- Mostra a linha atual do cursor
-vim.cmd("filetype plugin indent on") -- Identa o arquivo dependendo da linguagem
-vim.cmd("set mouse=a") -- Libera o click do mouse no VIM
-vim.g.mapleader = " " -- Espaço é a principal chave de alguns comandos
-vim.filetype.add({extension = { mdx = "markdown", },}) -- Arquivos mdx são reconhecidos como Markdown também
-
----------------------------------------------------
--- CONFIGURAÇÃO DO GERENCIADOR DE PACOTES LAZY.VIM
----------------------------------------------------
-
-local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+-- Enable the Lua module cache (huge startup win on Neovim 0.9+).
+if vim.loader and vim.loader.enable then
+  vim.loader.enable()
 end
-vim.opt.rtp:prepend(lazypath)
 
-------------------------------------------------- 
--- CONFIGURAÇÃO DO FOLDER ONDE FICA OS PLUGINS --
--------------------------------------------------
+-- Leader keys must be set before any plugin spec is loaded.
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-require("lazy").setup({
-    spec = {
-        {import = "plugins"}
-    },
-})
-
-------------------------------------------
--- CONFIGURAÇÃO DOS COMANDOS DE TECLADO --
-------------------------------------------
-
+-- Load configuration modules.
+require("config.options")
+require("config.lazy")
 require("config.keymaps")
-
+require("config.autocmds")

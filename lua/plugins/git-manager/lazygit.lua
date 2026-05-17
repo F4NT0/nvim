@@ -1,32 +1,32 @@
---[[
+--[[ ============================================================================
+PLUGIN: kdheepak/lazygit.nvim
+============================================================================
+Embeds the `lazygit` TUI inside a Neovim floating window. Requires the
+`lazygit` binary on PATH (`winget install JesseDuffield.Lazygit` or
+`choco install lazygit`). The Go installer checks for and offers to install
+lazygit automatically.
 
-PLUGIN LAZYGIT
+Keymaps:
+  <C-l>    open lazygit in a floating window
 
--> DESCRIÇÃO: Este plugin conecta o software lazygit no Neovim, abre uma tela flutuante.
--> info: Precisa instalar o programa Lazygit antes: choco install lazygit / winget install --id=JesseDuffield.Lazygit -e
--> PROJETO NO GITHUB: https://github.com/kdheepak/lazygit.nvim 
--> COMANDOS DE TECLADO:
-  - CTRL + L = Abre o Lazygit no Neovim.
-
---]]
+Repo: https://github.com/kdheepak/lazygit.nvim
+Docs: Documentations/git-manager/lazygit.md
+============================================================================ ]]
 
 return {
   "kdheepak/lazygit.nvim",
-
   cmd = {
-    "LazyGit",
-    "LazyGitConfig",
-    "LazyGitCurrentFile",
-    "LazyGitFilter",
-    "LazyGitFilterCurrentFile",
+    "LazyGit", "LazyGitConfig", "LazyGitCurrentFile",
+    "LazyGitFilter", "LazyGitFilterCurrentFile",
   },
-
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
-
-  -- Key binding
+  dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
-    { "<C-l>", "<cmd>LazyGit<cr>", desc = "Open Lazy Git" },
+    { "<C-l>", "<cmd>LazyGit<cr>", desc = "Open LazyGit" },
   },
+  init = function()
+    vim.g.lazygit_floating_window_border_chars = { "╭","─","╮","│","╯","─","╰","│" }
+    vim.g.lazygit_floating_window_winblend     = 0
+    vim.g.lazygit_floating_window_scaling_factor = 0.9
+    vim.g.lazygit_use_neovim_remote            = 0
+  end,
 }

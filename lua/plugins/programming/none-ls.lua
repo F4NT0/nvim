@@ -1,37 +1,30 @@
---[[
+--[[ ============================================================================
+PLUGIN: nvimtools/none-ls.nvim  (fork of null-ls.nvim)
+============================================================================
+Injects results from external formatters and linters into Neovim's LSP
+infrastructure so `vim.lsp.buf.format()` and diagnostics work uniformly.
 
-PLUGIN NONE-LS
+Active sources:
+  - stylua            Lua formatter
+  - prettier          JS/TS/JSON/YAML/Markdown formatter
+  - csharpier         C# formatter (.NET tool)
 
--> DESCRIÇÃO: Plugin que gerencia linters e formatters de fora do Neovim.
-  - Antigamente se chamava null-ls.
-  - Linter mostra se tem erros no código.
-  - Formatters ajusta o código para a linguagem específica
--> PROJETOS NO GITHUB:
-  - https://github.com/nvimtools/none-ls.nvim
-  - https://github.com/nvimtools/none-ls-extras.nvim
--> COMANDOS DO NEOVIM:
-  - Rode o comando :NullLsLog para ver o que precisa ajustar no código
-
---]]
-
-
---- - Use `:NullLsLog` to debug issues or check registered sources.
+Repo: https://github.com/nvimtools/none-ls.nvim
+Docs: Documentations/programming/none-ls.md
+============================================================================ ]]
 
 return {
   "nvimtools/none-ls.nvim",
-  dependencies = {
-    "nvimtools/none-ls-extras.nvim",
-  },
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = { "nvimtools/none-ls-extras.nvim", "nvim-lua/plenary.nvim" },
   config = function()
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
-        -- Formattings
-        null_ls.builtins.formatting.stylua, -- Lua linter
-        null_ls.builtins.formatting.prettier, -- To other languages
-        -- Linters
-        -- null_ls.builtins.diagnostics.dotnet_diagnostic, -- C#
-      }
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.csharpier,
+      },
     })
-  end
+  end,
 }

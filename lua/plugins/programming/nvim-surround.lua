@@ -1,36 +1,26 @@
---[[
+--[[ ============================================================================
+PLUGIN: kylechui/nvim-surround
+============================================================================
+Add, change and delete surrounding characters (parentheses, quotes, HTML
+tags, function calls…).
 
-PLUGIN NVIM-SURROUND
+Cheat sheet:
+  Before           Command       After
+  word             ysiw)         (word)
+  some text        ys$"          "some text"
+  [delete]         ds]           delete
+  <b>HTML</b>      dst           HTML
+  'word'           cs'"          "word"
+  <b>HTML</b>      csth1<CR>     <h1>HTML</h1>
+  call(arg)        dsf           arg
 
--> DESCRIÇÃO: Plugin para ajudar a colocar "" e () no código
--> PROJETO NO GITHUB: https://github.com/kylechui/nvim-surround
--> COMANDOS DE TECLADO:
-  - Y + S + I + W + ) = Coloca () na palavra atual
-  - Y + S + $ + " = Coloca "" no próximo texto depois do cursor
-  - D + S + ] = Deleta o [] em volta da palavra
-  - D + S + T = Remove a tag HTML interna
-  - C + S + ' + " = Altera de '' para "" na palavra atual
-  - C + S + T + H + 1 + Enter = Altera o valor da tag da palavra atual
-  - D + S + F = Remove função e deixa somente a palavra do atributo
--> EXEMPLOS:
-    Palavra antiga |  Comando   |   Como fica
-  -----------------|------------|-----------------
-    palavra        |   ysiw)    |    (palavra)
-    texto string   |   ys$"     |   "texto string"
-    [deleta]       |   ds]      |   deleta 
-    <b>HTML</b>    |   dst      |   HTML
-    'palavra'      |   cs'"     |   "palavra"
-    <b>HTML</b>    |  csth1<CR> | <h1>HTML</h1>
-    deleta(funcao) |   dsf      | function
-
---]]
+Repo: https://github.com/kylechui/nvim-surround
+Docs: Documentations/programming/nvim-surround.md
+============================================================================ ]]
 
 return {
-    "kylechui/nvim-surround",
-    version = "^3.0.0",
-    event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-        })
-    end
+  "kylechui/nvim-surround",
+  version = "^3.0.0",
+  event   = "VeryLazy",
+  opts    = {},
 }

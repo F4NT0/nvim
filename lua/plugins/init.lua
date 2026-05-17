@@ -1,16 +1,15 @@
---[[
-
-CONFIGURAÇÃO DAS PASTAS DE PLUGINS
-
--> DESCRIÇÃO: Este arquivo somente serve para que saiba a localização das pastas de plugins ativos
-
---]]
+--[[ ============================================================================
+PLUGIN GROUP LOADER
+============================================================================
+Lazy.nvim follows the `import` keys below recursively, which loads every
+plugin spec under each sub-directory. Adding a new category only requires
+creating the folder and adding an entry here.
+============================================================================ ]]
 
 return {
-  { import = "plugins.interface" },
-  { import = "plugins.lsp" },
-  { import = "plugins.markdown" },
+  { import = "plugins.interface"   },
+  { import = "plugins.lsp"         },
+  { import = "plugins.markdown"    },
   { import = "plugins.programming" },
-  { import = "plugins.git-manager" }
-
+  { import = "plugins.git-manager" },
 }

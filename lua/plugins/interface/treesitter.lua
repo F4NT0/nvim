@@ -1,51 +1,47 @@
---[[
+--[[ ============================================================================
+PLUGIN: nvim-treesitter/nvim-treesitter
+============================================================================
+Syntax highlighting and indentation engine based on incremental parsing.
+Parsers are installed automatically on first open of a supported filetype.
 
-PLUGIN TREESITTER
+Requires a C compiler (gcc/clang) and `tree-sitter-cli` on PATH for
+out-of-the-box parser installation.
 
--> DESCRIÇÃO: Mostra cores e identa o código para diferentes linguagens
--> PROJETO NO GITHUB: https://github.com/nvim-treesitter/nvim-treesitter
--> ATENÇÃO: Precisa instalar o MSYS2 instalado com GCC
-  - LINK: https://www.msys2.org/
-  - Não esqueça de adicionar o PATH nas variáveis de ambiente
--> ATENÇÃO 2: Precisa instalar o tree-sitter-cli primeiro
-  - npm install -g tree-sitter-cli
-
---]]
+Repo: https://github.com/nvim-treesitter/nvim-treesitter
+Docs: Documentations/interface/treesitter.md
+============================================================================ ]]
 
 return {
-
-  ---------------- 
-  -- INSTALAÇÃO --
-  ----------------
-
-  "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
-
-  ------------------
-  -- CONFIGURAÇÃO --
-  ------------------
-
+  "nvim-treesitter/nvim-treesitter",
+  event = { "BufReadPost", "BufNewFile" },
+  build = ":TSUpdate",
+  cmd   = { "TSUpdate", "TSInstall", "TSInstallInfo", "TSUpdateSync" },
   config = function()
-    local tree = require("nvim-treesitter.configs")
-    tree.setup({
+    require("nvim-treesitter.configs").setup({
       ensure_installed = {
-        "lua",
-        "c_sharp",
-        "java",
-        "powershell",
-        "toml",
-        "sql",
-        "json",
-        "yaml",
-        "xml",
-        "latex",
-        "markdown",
-        "markdown_inline"
+        "lua", "vim", "vimdoc", "query",
+        "c_sharp", "java", "go", "rust", "python",
+        "powershell", "bash",
+        "toml", "yaml", "json", "json5",
+        "xml", "html", "css", "scss",
+        "javascript", "typescript", "tsx",
+        "sql", "dockerfile", "gitignore", "gitcommit",
+        "markdown", "markdown_inline",
+        "regex", "diff",
       },
       sync_install = false,
       auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true }
+      highlight    = { enable = true, additional_vim_regex_highlighting = false },
+      indent       = { enable = true },
+      incremental_selection = {
+        enable  = true,
+        keymaps = {
+          init_selection    = "<C-Space>",
+          node_incremental  = "<C-Space>",
+          scope_incremental = false,
+          node_decremental  = "<bs>",
+        },
+      },
     })
-  end
+  end,
 }
-

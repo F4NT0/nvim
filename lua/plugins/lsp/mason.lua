@@ -1,67 +1,73 @@
---[[
+--[[ ============================================================================
+PLUGIN: williamboman/mason.nvim  +  mason-lspconfig.nvim
+============================================================================
+Mason is a portable package manager for LSP servers, DAP adapters, linters
+and formatters. mason-lspconfig bridges Mason package names to lspconfig
+server names so `vim.lsp.config()` calls in `nvim-lspconfig.lua` Just Work.
 
-PLUGIN MASON
+A custom registry is added for `roslyn` (the C# LSP) which is published by
+`Crashdummyy` instead of the official mason-registry.
 
--> DESCRIÇÃO: Este projeto é um gerenciador de LSP para instalar configurações de linguagens
--> PROJETOS NO GITHUB: 
-  - https://github.com/williamboman/mason.nvim
-  - https://github.com/williamboman/mason-lspconfig.nvim
-  - https://github.com/williamboman/
--> ATENÇÃO:
-  - Precisa ter instalado o .NET no seu computador.
-  - Adicione a seguinte ferramenta no seu terminal: dotnet tool install --global csharp-ls
-]]
+Requires:
+  - .NET SDK 8/9 on PATH         (for csharpier and roslyn at runtime)
+  - Node.js on PATH              (for prettier, typescript-language-server)
+  - PowerShell 7+ or pwsh on PATH
+
+Repo: https://github.com/williamboman/mason.nvim
+      https://github.com/williamboman/mason-lspconfig.nvim
+Docs: Documentations/lsp/mason.md
+============================================================================ ]]
 
 return {
-
-  ----------- 
-  -- MASON --
-  -----------
-
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup({
-        registries = {
-          -- Esses registros são para instalar o roslyn no Neovim (para C#)
-          "github:mason-org/mason-registry",
-          "github:Crashdummyy/mason-registry",
+    cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall", "MasonLog" },
+    build = ":MasonUpdate",
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",  -- exposes `roslyn` and `rzls`
+      },
+      ui = {
+        border = "rounded",
+        icons = {
+          package_installed   = "",
+          package_pending     = "",
+          package_uninstalled = "",
         },
-        ui = {
-          icons = {
-           package_installed = "",
-           package_pending = "",
-           package_uninstalled = "",  
-          },
-        },
-        ensure_installed = {
-          "lua-language-server",
-          "csharpier",
-          "prettier",
-          "roslyn",
-        }
-      })
-    end
+      },
+    },
+    config = function(_, opts)
+      require("mason").setup(opts)
+
+      -- Install the non-LSP tooling we rely on (formatters / linters).
+      local ensure = { "csharpier", "prettier", "stylua" }
+      local registry = require("mason-registry")
+      registry.refresh(function()
+        for _, name in ipairs(ensure) do
+          local ok, pkg = pcall(registry.get_package, name)
+          if ok and not pkg:is_installed() then
+            pkg:install()
+          end
+        end
+      end)
+    end,
   },
-
-  ---------------------
-  -- MASON LSPCONFIG --
-  ---------------------
-
-  --- Próxima parte da configuração se encontra em nvim-lspconfig.lua.
-  --- Adicione a configuração de cada linguagem aqui para ele instalar automaticamente.
 
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "yamlls",
-        },
-        automatic_enable = true,
-      })
-    end
-  }
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    opts = {
+      -- LSP servers that should be auto-installed and auto-enabled.
+      ensure_installed = {
+        "lua_ls",
+        "yamlls",
+        "jsonls",
+        "bashls",
+        -- C# (roslyn) is handled by the seblyng/roslyn.nvim plugin spec.
+      },
+      automatic_installation = true,
+    },
+  },
 }
-

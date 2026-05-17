@@ -1,119 +1,91 @@
---[[
+--[[ ============================================================================
+PLUGIN: nvim-neo-tree/neo-tree.nvim
+============================================================================
+File explorer sidebar. Shows the project tree, git status, buffers and
+filesystem operations. Hidden files are visible by default.
 
-PLUGIN NEOTREE
+Repo: https://github.com/nvim-neo-tree/neo-tree.nvim
+Docs: Documentations/interface/neo-tree.md
+============================================================================ ]]
 
--> DESCRIÇÃO: Mostra todos os arquivos e pastas no diretório atual
--> PROJETO DO GITHUB: https://github.com/nvim-neo-tree/neo-tree.nvim 
--> COMANDOS DO TECLADO:
-  - Ctrl + F = Abre o Neotree a esquerda
-  - Enter = Abre o arquivo selecionado atual
-  - S = Abre o arquivo selecionado na vertical
-  - Shift + S = Abre o arquivo selecionado na horizontal
-  - Backspace = Vai para o diretório anterior
-  - Shift + P = Mostra/Fecha um preview do arquivo selecionado
-  - A = Cria um novo arquivo ou diretório
-  - D = Deleta o arquivo selecionado
-  - R = Renomeia o arquivo selecionado
-  - Y = Copia o arquivo selecionado
-  - X = Corta o arquivo selecionado
-  - C = Copia o arquivo ou diretório selecionado
-  - M = Move o arquivo ou diretório selecionado
-  - ? = Mosta um popup com os comandos disponiveis
-  - Shift + Y = Copia o caminho até o arquivo no clipboard
-  - Shift + O = Abre o arquivo selecionado fora do Neovim
--> COMANDOS DO NEOVIM:
-  - :Neotree toggle = Abre/Fecha o plugin
-  - :Neotree reveal = Abre o plugin no arquivo atual
-  - :Neotree float = Abre o Neotree em uma aba flutuante
-  - :Neotree show buffers right = Mostra a lista de buffers abertos
-  - :Neotree float git_status = Abre uma aba flutuante com o status do git
-
---]]
-
-
-----------------
--- INSTALAÇÃO --
----------------- 
+local theme = require("config.theme")
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
+  cmd    = "Neotree",
+  keys   = {
+    { "<C-f>", "<cmd>Neotree filesystem reveal left<cr>", desc = "Open file explorer" },
+    { "<C-x>", "<cmd>Neotree close<cr>",                   desc = "Close file explorer" },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim"
+    "MunifTanjim/nui.nvim",
   },
-
-  -------------------
-  -- CONFIGURAÇÃO --
-  -------------------
-
   config = function()
+    -- Custom highlights so the explorer matches the global theme.
+    local hi = vim.api.nvim_set_hl
+    hi(0, "NeoTreeNormal",          { fg = theme.fg,         bg = theme.bg })
+    hi(0, "NeoTreeNormalNC",        { fg = theme.fg,         bg = theme.bg })
+    hi(0, "NeoTreeEndOfBuffer",     { fg = theme.bg,         bg = theme.bg })
+    hi(0, "NeoTreeFloatBorder",     { fg = theme.border,     bg = theme.bg_float })
+    hi(0, "NeoTreeFloatTitle",      { fg = theme.fg_strong,  bg = theme.bg_float, bold = true })
+    hi(0, "NeoTreeWinSeparator",    { fg = theme.border_muted, bg = theme.bg })
+    hi(0, "NeoTreeRootName",        { fg = theme.orange,     bold = true })
+    hi(0, "NeoTreeDirectoryName",   { fg = theme.fg })
+    hi(0, "NeoTreeDirectoryIcon",   { fg = theme.blue })
+    hi(0, "NeoTreeFileName",        { fg = theme.fg })
+    hi(0, "NeoTreeFileNameOpened",  { fg = theme.orange,     bold = true })
+    hi(0, "NeoTreeTitleBar",        { fg = theme.fg_strong,  bg = theme.bg_alt })
+    hi(0, "NeoTreeGitAdded",        { fg = theme.git_added })
+    hi(0, "NeoTreeGitModified",     { fg = theme.git_modified })
+    hi(0, "NeoTreeGitDeleted",      { fg = theme.git_deleted })
+    hi(0, "NeoTreeGitRenamed",      { fg = theme.git_renamed })
+    hi(0, "NeoTreeGitUntracked",    { fg = theme.git_untracked,    bold = true })
+    hi(0, "NeoTreeGitConflict",     { fg = theme.red,        bold = true })
+    hi(0, "NeoTreeGitStaged",       { fg = theme.blue })
+    hi(0, "NeoTreeIndentMarker",    { fg = theme.border_muted })
 
-    --- Meu tema de cores
-    vim.cmd [[
-      highlight NeoTreeDirectoryName guifg=#F5F8F6
-      highlight NeoTreeDirectoryIcon guifg=#F9F8F8
-      highlight NeoTreeFileName guifg=#FEFEFF
-      highlight NeoTreeFileNameOpened guifg=#F19706 gui=bold
-      highlight NeoTreeNormal guibg=#101329
-      highlight NeotreeNormalNC guibg=#101329
-      highlight NeoTreeEndOfBuffer guibg=#101329
-      highlight NeoTreeFloatBorder guifg=#888A88
-      highlight NeoTreeTabActive guibg=#101329 guifg=#F5F8F6
-      highlight NeoTreeGitUntracked guifg=#25ED17 gui=bold
-      highlight NeoTreeGitStaged guifg=#09BFFD
-      highlight NeoTreeTitleBar guibg=#101329 guifg=#F5F8F6
-      highlight NeoTreeRootName guifg=#F2A033
-
-    ]]
-
-    --- ícones dos status do GIT
     require("neo-tree").setup({
+      close_if_last_window = true,
+      popup_border_style   = "rounded",
+      enable_git_status    = true,
+      enable_diagnostics   = true,
       default_component_configs = {
+        indent = { padding = 1, with_markers = true, indent_marker = "│", last_indent_marker = "└" },
         git_status = {
           symbols = {
-            added     = "",
-            modified  = "",
+            added     = "",
+            modified  = "",
             deleted   = "󰧧",
             renamed   = "󰑕",
             untracked = "★",
             ignored   = "◌",
             unstaged  = "✗",
             staged    = "✓",
-            conflict  = "",
-          }
-        }
-      },
-
-      --- Organização da localização da aba
-      window = {
-        position = "left",
-        popup = {
-          size = {
-            height = "90%",
-            width = "70%",
-          },
-          position = "50%",
-          border = {
-            style = "rounded",
-            text = {
-              top = "",
-            },
-            highlight ="NeoTreeFloatBorder",
+            conflict  = "",
           },
         },
       },
-
-      --- Mostrando todos os arquivos até mesmo os ocultos
-
-    filesystem = {
-      filtered_items = {
-        visible = true,
-        hide_dotfiles = false,
-        hide_gitignored = false,
-      }
-    },
-})
-  end
+      window = {
+        position = "left",
+        width    = 32,
+        popup = {
+          size     = { height = "85%", width = "60%" },
+          position = "50%",
+          border   = { style = "rounded", highlight = "NeoTreeFloatBorder" },
+        },
+      },
+      filesystem = {
+        follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
+        filtered_items = {
+          visible         = true,
+          hide_dotfiles   = false,
+          hide_gitignored = false,
+        },
+      },
+    })
+  end,
 }

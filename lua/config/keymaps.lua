@@ -1,78 +1,55 @@
---[[
+--[[ ============================================================================
+GLOBAL KEYMAPS
+============================================================================
+Plugin-specific keymaps live next to their plugin spec — anything that maps
+the moment Neovim starts (or is too global to belong to a single plugin)
+lives here.
 
-CONFIGURAÇÃO DE ATALHOS DE TECLADO NO NEOVIM
+Mnemonics for <leader>-prefixed sequences:
+  c   Code      (LSP)
+  d   Debug     (DAP) and Dotnet run
+  h   Hunk      (gitsigns)
+  n   .NET      (easy-dotnet)
+  t   Test      (neotest)  and TODO list (td)
+  s   Show      (s -> diagnostics, etc.)
+============================================================================ ]]
 
---]]
+local map = function(mode, lhs, rhs, opts)
+  opts = vim.tbl_extend("force", { silent = true }, opts or {})
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
 
------------
--- BARBAR
------------
+-- ── Barbar (buffer tabs) ──────────────────────────────────────────────────────
+map("n", "<A-,>", "<cmd>BufferPrevious<cr>",     { desc = "Tab: previous"        })
+map("n", "<A-.>", "<cmd>BufferNext<cr>",         { desc = "Tab: next"            })
+map("n", "<A-<>", "<cmd>BufferMovePrevious<cr>", { desc = "Tab: move left"       })
+map("n", "<A->>", "<cmd>BufferMoveNext<cr>",     { desc = "Tab: move right"      })
+map("n", "<A-1>", "<cmd>BufferGoto 1<cr>",       { desc = "Tab: go to 1"         })
+map("n", "<A-2>", "<cmd>BufferGoto 2<cr>",       { desc = "Tab: go to 2"         })
+map("n", "<A-3>", "<cmd>BufferGoto 3<cr>",       { desc = "Tab: go to 3"         })
+map("n", "<A-4>", "<cmd>BufferGoto 4<cr>",       { desc = "Tab: go to 4"         })
+map("n", "<A-5>", "<cmd>BufferGoto 5<cr>",       { desc = "Tab: go to 5"         })
+map("n", "<A-6>", "<cmd>BufferGoto 6<cr>",       { desc = "Tab: go to 6"         })
+map("n", "<A-p>", "<cmd>BufferPin<cr>",          { desc = "Tab: pin"             })
+map("n", "<A-c>", "<cmd>BufferClose<cr>",        { desc = "Tab: close current"   })
 
-vim.keymap.set('n','<A-,>', '<Cmd>BufferPrevious<CR>', { desc = "Change tab to previous one" })
-vim.keymap.set('n','<A-.>', '<Cmd>BufferNext<CR>', { desc = "Change tab to the next one" })
-vim.keymap.set('n','<A-<>', '<Cmd>BufferMovePrevious<CR>', { desc = "Reorder the tab to left" })
-vim.keymap.set('n','<A->>', '<Cmd>BufferMoveNext<CR>', { desc = "Reorder the tab to right" })
-vim.keymap.set('n','<A-1>', '<Cmd>BufferGoto 1<CR>', { desc = "Move to tab 1" })
-vim.keymap.set('n','<A-2>', '<Cmd>BufferGoto 2<CR>', { desc = "Move to tab 2" })
-vim.keymap.set('n','<A-3>', '<Cmd>BufferGoto 3<CR>', { desc = "Move to tab 3" })
-vim.keymap.set('n','<A-4>', '<Cmd>BufferGoto 4<CR>', { desc = "Move to tab 4" })
-vim.keymap.set('n','<A-5>', '<Cmd>BufferGoto 5<CR>', { desc = "Move to tab 5" })
-vim.keymap.set('n','<A-6>', '<Cmd>BufferGoto 6<CR>', { desc = "Move to tab 6" })
-vim.keymap.set('n','<A-p>', '<Cmd>BufferPin<CR>', { desc = "Pin current tab" })
-vim.keymap.set('n','<A-c>', '<Cmd>BufferClose<CR>', { desc = "Close Current tab"})
+-- ── Todo comments ─────────────────────────────────────────────────────────────
+map("n", "<leader>td", "<cmd>TodoTelescope<cr>", { desc = "[T]o[D]o list" })
 
-------------
--- GITSIGNS
-------------
+-- ── Quality of life ───────────────────────────────────────────────────────────
+map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
+map("n", "<C-h>", "<C-w>h", { desc = "Window: move left"  })
+map("n", "<C-j>", "<C-w>j", { desc = "Window: move down"  })
+map("n", "<C-k>", "<C-w>k", { desc = "Window: move up"    })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Window: wider" })
+map("n", "<C-Left>",  "<cmd>vertical resize -2<cr>", { desc = "Window: narrower" })
+map("n", "<C-Up>",    "<cmd>resize +2<cr>",          { desc = "Window: taller" })
+map("n", "<C-Down>",  "<cmd>resize -2<cr>",          { desc = "Window: shorter" })
 
-local gitsigns = require("gitsigns")
-vim.keymap.set('n','<leader>hs',gitsigns.stage_hunk,{ desc = "Stage the actual hunk(like git add)" })
-vim.keymap.set('n','<leader>hr',gitsigns.reset_hunk,{ desc = "Undo the actual hunk" })
-vim.keymap.set('n','<leader>hS',gitsigns.stage_buffer,{ desc = "Stage All buffer (all file)" })
-vim.keymap.set('n','<leader>hR',gitsigns.reset_buffer,{ desc = "Undo All buffer (all file)" })
-vim.keymap.set('n','<leader>hp',gitsigns.preview_hunk,{ desc = "Preview the hunk of code changed" })
+-- Keep selection after indenting in visual mode.
+map("v", ">", ">gv", { desc = "Indent and keep selection"   })
+map("v", "<", "<gv", { desc = "Dedent and keep selection"   })
 
-------------
--- NEOTREE
--------------
-
-vim.keymap.set('n', '<C-f>', ':Neotree filesystem left<CR>', { desc = "Open Neotree FileSystem" })
-vim.keymap.set('n', '<C-x>', ':Neotree close<CR>', { desc = "Close the Neotree Filesystem" })
-
---------------
--- TELESCOPE
---------------
-
-vim.keymap.set('n', '<C-q>', require("telescope.builtin").find_files, {})
-vim.keymap.set('n', '<C-s>', require("telescope.builtin").live_grep, {})
-
----------------------------
--- DAP (Debug Application)
-----------------------------
-
-vim.keymap.set('n', '<leader>dt', require("dap").toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
-vim.keymap.set('n','<leader>ds', require("dap").continue, { desc = "[D]ebug [S]tart" })
-vim.keymap.set('n','<leader>dc', require("dapui").close, { desc = "[D]ebug [C]lose" })
-
---------
--- LSP
---------
-
-vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { desc = "[C]ode [H]over Documentation" })
-vim.keymap.set('n','<leader>cd', vim.lsp.buf.definition, { desc = "[C]ode Goto [D]efinition" })
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
-vim.keymap.set('n', '<leader>cr', require("telescope.builtin").lsp_references, { desc = "[C]ode Goto [R]eferences" })
-vim.keymap.set('n', '<leader>ci', require("telescope.builtin").lsp_implementations, { desc = "[C]ode Goto [I]mplementations" })
-vim.keymap.set('n', '<leader>cR', vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
-vim.keymap.set('n', '<leader>cD', vim.lsp.buf.declaration, { desc = "[C]ode Goto [D]eclaration" })
-vim.keymap.set('n', '<leader>sd', vim.diagnostic.open_float, { desc = "[S]how [D]iagnostics" })
-vim.keymap.set('n','<leader>cf', vim.lsp.buf.format, { desc = "[C]ode [F]ormat" })
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "[D]iagnostics [L]ists" })
-
------------------
--- TODO COMMENTS
------------------
-
-vim.keymap.set('n', '<leader>td', '<cmd>TodoTelescope<CR>', { desc = "[T]o[D]o List" })
-
-
+-- Move selected lines up/down (visual mode).
+map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line down" })
+map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line up"   })
