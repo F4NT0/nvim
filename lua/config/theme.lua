@@ -10,9 +10,9 @@ Palette: GitHub Dark inspired, easy on the eyes for long sessions.
 
 return {
   -- Backgrounds
-  bg          = "#0d1117",   -- primary background (replaces the old blue #101329)
-  bg_alt      = "#161b22",   -- elevated surfaces (popups, statusline, sidebar)
-  bg_float    = "#0d1117",   -- floating windows
+  bg          = "#0d0d0d",   -- primary background
+  bg_alt      = "#0d0d0d",   -- elevated surfaces (popups, statusline, sidebar)
+  bg_float    = "#0d0d0d",   -- floating windows
   bg_selected = "#1f6feb22", -- subtle highlight for selected items
 
   -- Foregrounds
